@@ -5,33 +5,45 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using BeautySalon.Models;
+using Services;
 
 namespace BeautySalon.Controllers
 {
     public class HomeController : Controller
     {
-        public IActionResult Index()
-        {
-            return View();
-        }
+            private readonly ServiсeService serviсeService;
 
-        public IActionResult About()
-        {
-            ViewData["Message"] = "Your application description page.";
+            public IActionResult CatalogHairdressersServices()
+            {
+                var services = serviсeService.GetAllCatalogHairdresserServices(); /*contact to the collection in the service*/
+                var servicesViewModel = new ServicesViewModel(); 
+                List<string> ServicesViewModel = services;
+                return View(servicesViewModel);
 
-            return View();
-        }
+            }
 
-        public IActionResult Contact()
-        {
-            ViewData["Message"] = "Your contact page.";
+            public IActionResult Index()
+            {
+             return View();
+            }
 
-            return View();
-        }
+            public IActionResult About()
+            {
+             ViewData["Message"] = "Your application description page.";
 
-        public IActionResult Error()
-        {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
-        }
+             return View();
+            }
+
+            public IActionResult Contact()
+            {
+             ViewData["Message"] = "Your contact page.";
+
+             return View();
+            }
+
+            public IActionResult Error()
+            {
+             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+            }
     }
-}
+}  
