@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿
 using System.Diagnostics;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using BeautySalon.Models;
 using Services;
@@ -11,39 +8,63 @@ namespace BeautySalon.Controllers
 {
     public class HomeController : Controller
     {
-            private readonly ServiсeService serviсeService;
 
-            public IActionResult CatalogHairdressersServices()
-            {
-                var services = serviсeService.GetAllCatalogHairdresserServices(); /*contact to the collection in the service*/
-                var servicesViewModel = new ServicesViewModel(); 
-                List<string> ServicesViewModel = services;
-                return View(servicesViewModel);
+        private readonly ServiсeService serviсeService;
 
-            }
+        public HomeController()
+        {
+            serviсeService = new ServiсeService();
+        }
 
-            public IActionResult Index()
-            {
-             return View();
-            }
+        public IActionResult HairdresserServices()
+        {
+            var services = serviсeService.GetAllHairdresserServices(); /*contact to the collection in the service*/
+            var hairdresserServiceListViewModel = new HairdresserServiceListViewModel();
 
-            public IActionResult About()
-            {
-             ViewData["Message"] = "Your application description page.";
+            hairdresserServiceListViewModel.HairdresserServices = services;
+            return View(hairdresserServiceListViewModel);
+        }
 
-             return View();
-            }
+        public IActionResult Manicure()
+        {
+            var services = serviсeService.GetAllManicure(); /*contact to the collection in the service*/
+            var manicureListViewModel = new ManicureListViewModel();
 
-            public IActionResult Contact()
-            {
-             ViewData["Message"] = "Your contact page.";
+            manicureListViewModel.Manicure = services;
+            return View(manicureListViewModel);
+        }
 
-             return View();
-            }
+        public IActionResult CosmeticServices()
+        {
+            var services = serviсeService.GetAllCosmeticServices(); /*contact to the collection in the service*/
+            var cosmeticServicesListViewModel = new CosmeticServicesListViewModel();
 
-            public IActionResult Error()
-            {
-             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
-            }
+            cosmeticServicesListViewModel.CosmeticServices = services;
+            return View(cosmeticServicesListViewModel);
+        }
+
+        public IActionResult Index()
+        {
+            return View();
+        }
+
+        public IActionResult About()
+        {
+            ViewData["Message"] = "Your application description page.";
+
+            return View();
+        }
+
+        public IActionResult Contact()
+        {
+            ViewData["Message"] = "Your contact page.";
+
+            return View();
+        }
+
+        public IActionResult Error()
+        {
+            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+        }
     }
-}  
+}

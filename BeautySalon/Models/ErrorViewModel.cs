@@ -1,5 +1,3 @@
-using System;
-
 namespace BeautySalon.Models
 {
     public class ErrorViewModel

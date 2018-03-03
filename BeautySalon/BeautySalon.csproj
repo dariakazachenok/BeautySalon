@@ -23,6 +23,8 @@
 
   <ItemGroup>
     <Folder Include="Images\" />
+    <Folder Include="Pages\Home\" />
+    <Folder Include="Views\Service\" />
   </ItemGroup>
 
   <ItemGroup>
