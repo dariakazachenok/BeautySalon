@@ -6,5 +6,40 @@
 
 <h2>Cosmetic Services</h2>
 
+<div class="row margin-top-10">
+    <table class="table table-striped">
+        <tr>
+            <th>№</th>
+            <th>Name service</th>
+            <th>Price</th>
+           
+        </tr>
+
+        @for (int i = 0; i < Model.CosmeticServices.Count; i++)
+         {
+            var item = Model.CosmeticServices[i];
+            var displayIndex = i + 1;
+            <tr>
+                <td>
+                    @displayIndex
+                </td>
+
+                <td>
+                    @item
+                </td>
+
+                <td>
+                   
+                </td>
+
+            </tr>
+         }
+    </table>
+</div>
+
+
+<div>
+    @Html.ActionLink("Go back to main page", "Index")
+</div>
 
 
