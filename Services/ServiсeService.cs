@@ -1,16 +1,54 @@
-﻿using System.Collections.Generic;
-using System.Linq;
+﻿using System;
+using EntityFramework;
+using Models;
+
 
 namespace Services
 {
     public class ServiсeService
     {
+        private readonly DatabaseContext databaseContext;
+
+       /* public ServiсeService()
+        {
+            databaseContext = new DatabaseContext();
+        }
+
+        public void CreateService(HairdresserServices hairdresserService)
+        {
+            databaseContext.HairdresserServices.Add(hairdresserService);
+            databaseContext.SaveChanges();
+        } */
+
         
-        private readonly List<string> HairdresserServices = new List<string>
+
+        /* public void EditService(Service service)
+         {
+             databaseContext.SaveChanges();
+         }
+
+         public void RemoveService(int id)
+         {
+             var service = databaseContext.Services.FirstOrDefault(x => x.Id == id);
+             databaseContext.Services.Remove(service);
+             databaseContext.SaveChanges();
+         }
+
+         public List<Service> GetAll()
+         {
+             return databaseContext.Services.ToList();
+         }
+
+         public Service GetById(int id)
+         {
+             return databaseContext.Services.FirstOrDefault(x => x.Id == id);
+         } */
+
+        /*private readonly List<string> HairdresserServices = new List<string>
         {
             "Haircut for men", "Haircut for women", "Difficult coloring (ombre, balayage, shatush, bronzing)", "Lamination of hair", "Hair extension", "Hairstyle",
             "Coloring your hair with your paint"
-        };
+        }; 
 
         public List<string> GetAllHairdresserServices()
         {
@@ -35,7 +73,7 @@ namespace Services
         public List<string> GetAllCosmeticServices()
         {
             return CosmeticServices.ToList();
-        }
+        } */
     }     
 }
 

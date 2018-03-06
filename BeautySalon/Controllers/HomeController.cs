@@ -16,18 +16,18 @@ namespace BeautySalon.Controllers
             serviсeService = new ServiсeService();
         }
 
-        public IActionResult HairdresserServices()
+       /* public IActionResult HairdresserServices()
         {
-            var services = serviсeService.GetAllHairdresserServices(); /*contact to the collection in the service*/
+            var services = serviсeService.GetAll(); /*contact to the collection in the service
             var hairdresserServiceListViewModel = new HairdresserServiceListViewModel();
 
-            hairdresserServiceListViewModel.HairdresserServices = services;
+            hairdresserServiceListViewModel.Nameservice = services;
             return View(hairdresserServiceListViewModel);
-        }
+        } */
 
-        public IActionResult Manicure()
+        /*public IActionResult Manicure()
         {
-            var services = serviсeService.GetAllManicure(); /*contact to the collection in the service*/
+            var services = serviсeService.GetAllManicure(); /*contact to the collection in the service
             var manicureListViewModel = new ManicureListViewModel();
 
             manicureListViewModel.Manicure = services;
@@ -36,12 +36,12 @@ namespace BeautySalon.Controllers
 
         public IActionResult CosmeticServices()
         {
-            var services = serviсeService.GetAllCosmeticServices(); /*contact to the collection in the service*/
+            var services = serviсeService.GetAllCosmeticServices(); /*contact to the collection in the service
             var cosmeticServicesListViewModel = new CosmeticServicesListViewModel();
 
             cosmeticServicesListViewModel.CosmeticServices = services;
             return View(cosmeticServicesListViewModel);
-        }
+         */
 
         public IActionResult Index()
         {

@@ -1,6 +1,6 @@
-namespace BeautySalon.Models
+﻿namespace Models
 {
-    public class HairdresserServiceListViewModel
+    public class HairdresserServices
     {
         public int Id { get; set; }
         public string Nameservice { get; set; }

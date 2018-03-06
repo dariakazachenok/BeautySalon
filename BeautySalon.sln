@@ -5,7 +5,9 @@ VisualStudioVersion = 15.0.27130.2036
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BeautySalon", "BeautySalon\BeautySalon.csproj", "{80BCBC1A-9A60-478C-AE9F-3552E53E09E4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Services", "Services\Services.csproj", "{B0FBD9A2-8AAC-49D2-B4FE-F695227003B1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Services", "Services\Services.csproj", "{B0FBD9A2-8AAC-49D2-B4FE-F695227003B1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Models", "Models\Models.csproj", "{BAD3335B-E21A-42BB-AF7A-63C0877600F9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{B0FBD9A2-8AAC-49D2-B4FE-F695227003B1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B0FBD9A2-8AAC-49D2-B4FE-F695227003B1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B0FBD9A2-8AAC-49D2-B4FE-F695227003B1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BAD3335B-E21A-42BB-AF7A-63C0877600F9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BAD3335B-E21A-42BB-AF7A-63C0877600F9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BAD3335B-E21A-42BB-AF7A-63C0877600F9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BAD3335B-E21A-42BB-AF7A-63C0877600F9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
