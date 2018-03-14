@@ -2,13 +2,17 @@
 using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using BeautySalon.Models;
+using EntityFramework;
+using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
+using Models;
 using Services;
 
 namespace BeautySalon.Controllers
 {
     public class HomeController : Controller
     {
-
+        
         private readonly ServiсeService serviсeService;
 
         public HomeController()
@@ -16,14 +20,22 @@ namespace BeautySalon.Controllers
             serviсeService = new ServiсeService();
         }
 
-       /* public IActionResult HairdresserServices()
-        {
-            var services = serviсeService.GetAll(); /*contact to the collection in the service
-            var hairdresserServiceListViewModel = new HairdresserServiceListViewModel();
+        public IActionResult HairdresserServices()
+         {
+             var services = serviсeService.GetAll(); /*contact to the collection in the service*/
+             var hairdresserServiceListViewModel = new HairdresserServiceListViewModel();
 
-            hairdresserServiceListViewModel.Nameservice = services;
-            return View(hairdresserServiceListViewModel);
-        } */
+             services.ForEach(service =>
+             {
+                 var serviceModel = new HairdresserServiceListItemViewModel();
+                 serviceModel.Id = service.Id;
+                 serviceModel.Price = service.Price;
+
+                 hairdresserServiceListViewModel.HairdresserService.Add(serviceModel);
+             });
+
+             return View(hairdresserServiceListViewModel);
+         } 
 
         /*public IActionResult Manicure()
         {

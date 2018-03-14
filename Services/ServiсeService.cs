@@ -1,48 +1,53 @@
-﻿using System;
+﻿using System.Collections.Generic;
+using System.Linq;
 using EntityFramework;
+using Microsoft.EntityFrameworkCore;
 using Models;
-
 
 namespace Services
 {
     public class ServiсeService
     {
+
         private readonly DatabaseContext databaseContext;
 
-       /* public ServiсeService()
+        public ServiсeService()
         {
-            databaseContext = new DatabaseContext();
+            var optionsBuilder = new DbContextOptionsBuilder<DatabaseContext>();
+            optionsBuilder.UseSqlServer("Data Source=HairdresserServices.dbo");
+
+            databaseContext = new DatabaseContext(optionsBuilder.Options);
         }
 
-        public void CreateService(HairdresserServices hairdresserService)
+        public List<HairdresserService> GetAll()
+        {
+            return databaseContext.HairdresserServices.ToList();
+        }
+
+        public void CreateService(HairdresserService hairdresserService)
         {
             databaseContext.HairdresserServices.Add(hairdresserService);
             databaseContext.SaveChanges();
-        } */
+        }
 
-        
+        public HairdresserService GetById(int id)
+        {
+            return databaseContext.HairdresserServices.FirstOrDefault(x => x.Id == id);
+        }
 
         /* public void EditService(Service service)
-         {
-             databaseContext.SaveChanges();
-         }
+          {
+              databaseContext.SaveChanges();
+          }
 
-         public void RemoveService(int id)
-         {
-             var service = databaseContext.Services.FirstOrDefault(x => x.Id == id);
-             databaseContext.Services.Remove(service);
-             databaseContext.SaveChanges();
-         }
+          public void RemoveService(int id)
+          {
+              var service = databaseContext.Services.FirstOrDefault(x => x.Id == id);
+              databaseContext.Services.Remove(service);
+              databaseContext.SaveChanges();
+          }
 
-         public List<Service> GetAll()
-         {
-             return databaseContext.Services.ToList();
-         }
-
-         public Service GetById(int id)
-         {
-             return databaseContext.Services.FirstOrDefault(x => x.Id == id);
-         } */
+         */
 
         /*private readonly List<string> HairdresserServices = new List<string>
         {
@@ -74,7 +79,7 @@ namespace Services
         {
             return CosmeticServices.ToList();
         } */
-    }     
+    }    
 }
 
 

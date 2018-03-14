@@ -1,9 +1,17 @@
+using System.Collections.Generic;
+
 namespace BeautySalon.Models
 {
     public class HairdresserServiceListViewModel
     {
-        public int Id { get; set; }
-        public string Nameservice { get; set; }
 
+       public List<HairdresserServiceListItemViewModel> HairdresserService { get; set; }
+
+        public HairdresserServiceListViewModel()
+        {
+            HairdresserService = new List<HairdresserServiceListItemViewModel>();
+        }
+
+       
     }
 }

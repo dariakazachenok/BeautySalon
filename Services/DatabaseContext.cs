@@ -5,11 +5,12 @@ namespace EntityFramework
 {
     public class DatabaseContext : DbContext
     {
-        public DbSet<HairdresserServices> HairdresserServices { get; set; }
+        public DbSet<HairdresserService> HairdresserServices { get; set; }
         public DatabaseContext(DbContextOptions<DatabaseContext> options)
-            : base(options)
+            : base()
         {
-        }
+        } 
+
     }
 }
 
