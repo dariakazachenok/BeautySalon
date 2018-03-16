@@ -1,10 +1,9 @@
-
+using System.Collections.Generic;
 
 namespace BeautySalon.Models
 {
-    public class HairdresserServiceListItemViewModel
+    public class CosmeticServiceListItemViewModel
     {
-
         public int Id { get; set; }
         public string Nameservice { get; set; }
         public int Price { get; set; }

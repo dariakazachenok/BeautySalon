@@ -11,7 +11,5 @@ namespace BeautySalon.Models
         {
             HairdresserService = new List<HairdresserServiceListItemViewModel>();
         }
-
-       
     }
 }

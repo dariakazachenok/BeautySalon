@@ -20,33 +20,43 @@ namespace BeautySalon.Controllers
             serviсeService = new ServiсeService();
         }
 
-        public IActionResult HairdresserServices()
+        public IActionResult HairdresserService()
          {
-             var services = serviсeService.GetAll(); /*contact to the collection in the service*/
+             var services = serviсeService.GetAll(); 
              var hairdresserServiceListViewModel = new HairdresserServiceListViewModel();
 
              services.ForEach(service =>
              {
                  var serviceModel = new HairdresserServiceListItemViewModel();
                  serviceModel.Id = service.Id;
+                 serviceModel.Nameservice = service.Nameservice;
                  serviceModel.Price = service.Price;
 
                  hairdresserServiceListViewModel.HairdresserService.Add(serviceModel);
              });
 
              return View(hairdresserServiceListViewModel);
-         } 
+         }
 
-        /*public IActionResult Manicure()
+        public IActionResult CosmeticService()
         {
-            var services = serviсeService.GetAllManicure(); /*contact to the collection in the service
-            var manicureListViewModel = new ManicureListViewModel();
+            var services = serviсeService.GetAll(); 
+             var cosmeticServiceListViewModel = new CosmeticServiceListViewModel();
 
-            manicureListViewModel.Manicure = services;
-            return View(manicureListViewModel);
+             services.ForEach(service =>
+             {
+                 var serviceModel = new CosmeticServiceListItemViewModel();
+                 serviceModel.Id = service.Id;
+                 serviceModel.Nameservice = service.Nameservice;
+                 serviceModel.Price = service.Price;
+
+                 cosmeticServiceListViewModel.CosmeticService.Add(serviceModel);
+             });
+
+             return View(cosmeticServiceListViewModel);
         }
 
-        public IActionResult CosmeticServices()
+        /*public IActionResult CosmeticServices()
         {
             var services = serviсeService.GetAllCosmeticServices(); /*contact to the collection in the service
             var cosmeticServicesListViewModel = new CosmeticServicesListViewModel();
