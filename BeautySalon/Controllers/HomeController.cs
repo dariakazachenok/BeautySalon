@@ -22,7 +22,7 @@ namespace BeautySalon.Controllers
 
         public IActionResult HairdresserService()
          {
-             var services = serviсeService.GetAll(); 
+             var services = serviсeService.GetAllHairdresserService(); 
              var hairdresserServiceListViewModel = new HairdresserServiceListViewModel();
 
              services.ForEach(service =>
@@ -40,7 +40,7 @@ namespace BeautySalon.Controllers
 
         public IActionResult CosmeticService()
         {
-            var services = serviсeService.GetAll(); 
+            var services = serviсeService.GetAllCosmeticService(); 
              var cosmeticServiceListViewModel = new CosmeticServiceListViewModel();
 
              services.ForEach(service =>
@@ -56,14 +56,23 @@ namespace BeautySalon.Controllers
              return View(cosmeticServiceListViewModel);
         }
 
-        /*public IActionResult CosmeticServices()
+        public IActionResult Manicure()
         {
-            var services = serviсeService.GetAllCosmeticServices(); /*contact to the collection in the service
-            var cosmeticServicesListViewModel = new CosmeticServicesListViewModel();
+            var services = serviсeService.GetAllManicure();
+            var manicureListViewModel = new ManicureListViewModel();
 
-            cosmeticServicesListViewModel.CosmeticServices = services;
-            return View(cosmeticServicesListViewModel);
-         */
+            services.ForEach(service =>
+            {
+                var serviceModel = new ManicureListItemViewModel();
+                serviceModel.Id = service.Id;
+                serviceModel.Nameservice = service.Nameservice;
+                serviceModel.Price = service.Price;
+
+                manicureListViewModel.Manicure.Add(serviceModel);
+            });
+
+            return View(manicureListViewModel);
+        }
 
         public IActionResult Index()
         {

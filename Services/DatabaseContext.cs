@@ -6,10 +6,15 @@ namespace EntityFramework
     public class DatabaseContext : DbContext
     {
         public DbSet<HairdresserService> HairdresserServices { get; set; }
+        public DbSet<CosmeticService> CosmeticServices { get; set; }
+        public DbSet<Manicure> Manicures { get; set; }
+
         public DatabaseContext(DbContextOptions<DatabaseContext> options)
             : base(options)
         {
         } 
+
+
 
     }
 }

@@ -14,16 +14,27 @@ namespace Services
         public ServiсeService()
         {
             var optionsBuilder = new DbContextOptionsBuilder<DatabaseContext>();
-            optionsBuilder.UseSqlServer("Server=(localdb)\\mssqllocaldb;Database=beautysalondb;Trusted_Connection=True;MultipleActiveResultSets=true");
+            optionsBuilder.UseSqlServer("Server=STORMTROOPER\\SQLEXPRESS;Database=beautysalondb;Trusted_Connection=True;MultipleActiveResultSets=true");
 
             databaseContext = new DatabaseContext(optionsBuilder.Options);
         }
 
-        public List<HairdresserService> GetAll()
+        public List<HairdresserService> GetAllHairdresserService()
         {
             return databaseContext.HairdresserServices.ToList();
         }
 
+        public List<CosmeticService> GetAllCosmeticService()
+        {
+            return databaseContext.CosmeticServices.ToList();
+        }
+
+        public List<Manicure> GetAllManicure()
+        {
+            return databaseContext.Manicures.ToList();
+        }
+
+        /*
         public void CreateService(HairdresserService hairdresserService)
         {
             databaseContext.HairdresserServices.Add(hairdresserService);
@@ -35,7 +46,7 @@ namespace Services
             return databaseContext.HairdresserServices.FirstOrDefault(x => x.Id == id);
         }
 
-        /* public void EditService(Service service)
+        public void EditService(Service service)
           {
               databaseContext.SaveChanges();
           }
