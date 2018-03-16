@@ -7,7 +7,7 @@ namespace EntityFramework
     {
         public DbSet<HairdresserService> HairdresserServices { get; set; }
         public DatabaseContext(DbContextOptions<DatabaseContext> options)
-            : base()
+            : base(options)
         {
         } 
 

@@ -14,7 +14,7 @@ namespace Services
         public ServiсeService()
         {
             var optionsBuilder = new DbContextOptionsBuilder<DatabaseContext>();
-            optionsBuilder.UseSqlServer("Data Source=HairdresserServices.dbo");
+            optionsBuilder.UseSqlServer("Server=(localdb)\\mssqllocaldb;Database=beautysalondb;Trusted_Connection=True;MultipleActiveResultSets=true");
 
             databaseContext = new DatabaseContext(optionsBuilder.Options);
         }
