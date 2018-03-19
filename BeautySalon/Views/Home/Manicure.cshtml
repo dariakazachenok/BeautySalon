@@ -12,27 +12,26 @@
             <th>№</th>
             <th>Name service</th>
             <th>Price</th>
-           
+
         </tr>
 
         @for (int i = 0; i < Model.Manicure.Count; i++)
          {
             var item = Model.Manicure[i];
             var displayIndex = i + 1;
-            <tr>
-                <td>
-                    @displayIndex
-                </td>
+         <tr>
+            <td>
+                @displayIndex
+            </td>
 
-                <td>
-                    @item
-                </td>
+            <td>
+                @item.Nameservice
+            </td>
 
-                <td>
-                   
-                </td>
-
-            </tr>
+            <td>
+                @item.Price
+            </td>
+         </tr>
          }
     </table>
 </div>

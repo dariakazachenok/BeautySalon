@@ -19,20 +19,19 @@
          {
             var item = Model.CosmeticService[i];
             var displayIndex = i + 1;
-            <tr>
-                <td>
-                    @displayIndex
-                </td>
+          <tr>
+            <td>
+                @displayIndex
+            </td>
 
-                <td>
-                    @item
-                </td>
+            <td>
+                @item.Nameservice
+            </td>
 
-                <td>
-                   
-                </td>
-
-            </tr>
+            <td>
+                @item.Price
+            </td>
+          </tr>
          }
     </table>
 </div>
