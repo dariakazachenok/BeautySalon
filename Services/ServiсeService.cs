@@ -34,31 +34,29 @@ namespace Services
             return databaseContext.Manicures.ToList();
         }
 
-        /*
-        public void CreateService(HairdresserService hairdresserService)
-        {
-            databaseContext.HairdresserServices.Add(hairdresserService);
-            databaseContext.SaveChanges();
-        }
-
         public HairdresserService GetById(int id)
         {
             return databaseContext.HairdresserServices.FirstOrDefault(x => x.Id == id);
         }
 
-        public void EditService(Service service)
+       
+        public void CreateHairdresserService(HairdresserService hairdresserService)
+        {
+            databaseContext.HairdresserServices.Add(hairdresserService);
+            databaseContext.SaveChanges();
+        }
+
+        public void EditHairdresserService(HairdresserService hairdresserService)
           {
               databaseContext.SaveChanges();
           }
 
-          public void RemoveService(int id)
+          public void RemoveHairdresserService(int id)
           {
-              var service = databaseContext.Services.FirstOrDefault(x => x.Id == id);
-              databaseContext.Services.Remove(service);
+              var hairdresserService = databaseContext.HairdresserServices.FirstOrDefault(x => x.Id == id);
+              databaseContext.HairdresserServices.Remove(hairdresserService);
               databaseContext.SaveChanges();
           }
-
-         */
 
         /*private readonly List<string> HairdresserServices = new List<string>
         {

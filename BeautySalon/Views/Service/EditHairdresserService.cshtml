@@ -1,0 +1,44 @@
+﻿@model Models.HairdresserServiceModel
+@{
+
+    ViewData["Title"] = "EditHairdresserService";
+}
+
+<h2>Edit hairdresserservices</h2>
+
+<form action="@Url.Action("UpdateHairdresserService", "Service")" enctype="multipart/form-data" method="POST" class="form-horizontal">
+
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal"/>
+    
+    <hr/>
+    @Html.ValidationSummary(true)
+    <div>
+        @Html.HiddenFor(model => model.Id)
+
+
+        @Html.LabelFor(model => model.Nameservice, "Nameservice")
+        <br />
+
+        @Html.EditorFor(model => model.Nameservice)
+        @Html.ValidationMessageFor(model => model.Nameservice)
+        <br />
+
+        @Html.LabelFor(model => model.Price, "Price")
+        <br />
+
+        @Html.EditorFor(model => model.Price)
+        @Html.ValidationMessageFor(model => model.Price)
+        <br />
+
+        <br />
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+</form>
+
+

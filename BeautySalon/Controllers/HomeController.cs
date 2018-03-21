@@ -2,10 +2,6 @@
 using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using BeautySalon.Models;
-using EntityFramework;
-using System.Threading.Tasks;
-using Microsoft.EntityFrameworkCore;
-using Models;
 using Services;
 
 namespace BeautySalon.Controllers
