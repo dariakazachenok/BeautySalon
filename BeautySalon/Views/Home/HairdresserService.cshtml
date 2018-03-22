@@ -12,13 +12,15 @@
             <th>№</th>
             <th>Name service</th>
             <th>Price</th>
+            <th></th>
+            <th></th>
         </tr>
 
         @for (int i = 0; i < Model.HairdresserService.Count; i++)
          {
             var item = Model.HairdresserService[i];
             var displayIndex = i + 1;
-         <tr>
+        <tr>
             <td>
                 @displayIndex
             </td>
@@ -30,14 +32,23 @@
             <td>
                 @item.Price
             </td>
-         </tr>
+
+            <td>
+                <a href="@Url.Action("CreateHairdresserService", "Service", new{@item.Id})">Edit</a>
+            </td>
+
+            <td>
+                <a href="@Url.Action("DeleteHairdresserService", "Service", new{@item.Id})">Delete</a>
+            </td>
+        </tr>
          }
     </table>
 </div>
 
 <div>
-    @Html.ActionLink("Edit services", "CreateHairdresserService", "Service") </br>
-    @Html.ActionLink("Go back to main page", "Index")
+    @Html.ActionLink("Add service", "CreateHairdresserService", "Service") </br>
+   
+    @Html.ActionLink("Go back to main page", "../Home/Index")
 </div>
 
 

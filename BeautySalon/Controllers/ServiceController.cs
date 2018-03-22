@@ -47,7 +47,7 @@ namespace BeautySalon.Controllers
             hairdresserService.Nameservice = hairdresserServicemodel.Nameservice;
             hairdresserService.Price = hairdresserServicemodel.Price;
 
-            if (hairdresserService.Id != null)
+            if (hairdresserServicemodel.Id != null)
             {
                 serviceService.EditHairdresserService(hairdresserService);
             }
@@ -69,7 +69,26 @@ namespace BeautySalon.Controllers
 
                 hairdresserServiceViewModel.HairdresserService.Add(serviceModel);
             });
-            return View("EditHairdresserService", hairdresserServiceViewModel);
+            return View("../Home/HairdresserService", hairdresserServiceViewModel);
+        }
+
+        public ActionResult DeleteHairdresserService(int id)
+        {
+            serviceService.RemoveHairdresserService(id);
+            var hairdresserservices = serviceService.GetAllHairdresserService();
+            var hairdresserServiceListViewModel = new HairdresserServiceListViewModel();
+
+            hairdresserservices.ForEach(sv =>
+            {
+                var serviceModel = new HairdresserServiceListItemViewModel();
+                serviceModel.Nameservice = sv.Nameservice;
+                serviceModel.Price = sv.Price;
+                serviceModel.Id = sv.Id;
+
+                hairdresserServiceListViewModel.HairdresserService.Add(serviceModel);
+            });
+
+            return View("../Home/HairdresserService", hairdresserServiceListViewModel);
         }
     }
 }

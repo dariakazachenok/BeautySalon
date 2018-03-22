@@ -7,7 +7,7 @@ namespace Models
         public int? Id { get; set; }
 
         [Required(ErrorMessage = "Please enter NameService")]
-        [StringLength(50)]
+        [StringLength(100)]
         public string Nameservice { get; set; }
 
         [Required(ErrorMessage = "Please enter Price")]
