@@ -1,12 +1,12 @@
 ﻿@model Models.HairdresserServiceModel
 @{
 
-    ViewData["Title"] = "EditHairdresserService";
+    ViewData["Title"] = "Create";
 }
 
-<h2>Edit hairdresserservices</h2>
+<h2>Create hairdresserservice</h2>
 
-<form action="@Url.Action("UpdateHairdresserService", "Service")" enctype="multipart/form-data" method="POST" class="form-horizontal">
+<form action="@Url.Action("Update", "HairdresserServices")" enctype="multipart/form-data" method="POST" class="form-horizontal">
 
     @Html.AntiForgeryToken()
 

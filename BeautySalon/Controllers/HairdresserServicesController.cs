@@ -1,20 +1,21 @@
-﻿using BeautySalon.Models;
+﻿using AutoMapper;
+using BeautySalon.Models;
 using Microsoft.AspNetCore.Mvc;
 using Models;
 using Services;
 
 namespace BeautySalon.Controllers
 {
-    public class ServiceController : Controller
+    public class HairdresserServicesController : Controller
     {
         private readonly ServiсeService serviceService;
 
-        public ServiceController()
+        public HairdresserServicesController()
         {
             serviceService = new ServiсeService();
         }
         // GET: HairdresserService
-        public ActionResult CreateHairdresserService(int id = 0)
+        public ActionResult Create(int id = 0)
         {
             var hairdresserServicemodel = new HairdresserServiceModel();
 
@@ -26,15 +27,17 @@ namespace BeautySalon.Controllers
                 hairdresserServicemodel.Price = hairdresserService.Price;
                 
             }
-            return View("EditHairdresserService", hairdresserServicemodel);
+            return View("Create", hairdresserServicemodel);
         }
 
         [HttpPost]
-        public ActionResult UpdateHairdresserService(HairdresserServiceModel hairdresserServicemodel)
+
+
+        public ActionResult Update(HairdresserServiceModel hairdresserServicemodel)
         {
             if (!ModelState.IsValid)
             {
-                return View("EditHairdresserService", hairdresserServicemodel);
+                return View("Create", hairdresserServicemodel);
             };
 
             HairdresserService hairdresserService = new HairdresserService();
@@ -49,11 +52,11 @@ namespace BeautySalon.Controllers
 
             if (hairdresserServicemodel.Id != null)
             {
-                serviceService.EditHairdresserService(hairdresserService);
+                serviceService.Edit(hairdresserService);
             }
             else
             {
-                serviceService.CreateHairdresserService(hairdresserService);
+                serviceService.Create(hairdresserService);
             }
 
             var hairdresserservices = serviceService.GetAllHairdresserService();
@@ -70,11 +73,11 @@ namespace BeautySalon.Controllers
                 hairdresserServiceViewModel.HairdresserService.Add(serviceModel);
             });
             return View("../Home/HairdresserService", hairdresserServiceViewModel);
-        }
+        } 
 
-        public ActionResult DeleteHairdresserService(int id)
+        public ActionResult Delete(int id)
         {
-            serviceService.RemoveHairdresserService(id);
+            serviceService.Remove(id);
             var hairdresserservices = serviceService.GetAllHairdresserService();
             var hairdresserServiceListViewModel = new HairdresserServiceListViewModel();
 

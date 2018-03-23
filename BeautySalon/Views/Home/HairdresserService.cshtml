@@ -34,11 +34,11 @@
             </td>
 
             <td>
-                <a href="@Url.Action("CreateHairdresserService", "Service", new{@item.Id})">Edit</a>
+                <a href="@Url.Action("Create", "HairdresserServices", new{@item.Id})">Edit</a>
             </td>
 
             <td>
-                <a href="@Url.Action("DeleteHairdresserService", "Service", new{@item.Id})">Delete</a>
+                <a href="@Url.Action("Delete", "HairdresserServices", new{@item.Id})">Delete</a>
             </td>
         </tr>
          }
@@ -46,7 +46,7 @@
 </div>
 
 <div>
-    @Html.ActionLink("Add service", "CreateHairdresserService", "Service") </br>
+    @Html.ActionLink("Add service", "Create", "HairdresserServices") </br>
    
     @Html.ActionLink("Go back to main page", "../Home/Index")
 </div>

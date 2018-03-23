@@ -40,18 +40,18 @@ namespace Services
         }
 
        
-        public void CreateHairdresserService(HairdresserService hairdresserService)
+        public void Create(HairdresserService hairdresserService)
         {
             databaseContext.HairdresserServices.Add(hairdresserService);
             databaseContext.SaveChanges();
         }
 
-        public void EditHairdresserService(HairdresserService hairdresserService)
+        public void Edit(HairdresserService hairdresserService)
           {
               databaseContext.SaveChanges();
           }
 
-          public void RemoveHairdresserService(int id)
+          public void Remove(int id)
           {
               var hairdresserService = databaseContext.HairdresserServices.FirstOrDefault(x => x.Id == id);
               databaseContext.HairdresserServices.Remove(hairdresserService);
