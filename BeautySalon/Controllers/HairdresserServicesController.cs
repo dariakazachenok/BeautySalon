@@ -1,5 +1,4 @@
-﻿using AutoMapper;
-using BeautySalon.Models;
+﻿using BeautySalon.Models;
 using Microsoft.AspNetCore.Mvc;
 using Models;
 using Services;
@@ -8,12 +7,16 @@ namespace BeautySalon.Controllers
 {
     public class HairdresserServicesController : Controller
     {
-        private readonly ServiсeService serviceService;
+        private readonly ServiceService serviceService;
 
-        public HairdresserServicesController()
+        public HairdresserServicesController(ServiceService serviceService)
         {
-            serviceService = new ServiсeService();
+            this.serviceService = serviceService;
+            /*var optionsBuilder = new DbContextOptionsBuilder<DatabaseContext>();
+            optionsBuilder.UseSqlServer("Server=localdb-mssqllocaldb.database.windows.net;Database=beautysalondb;User Id=Dasha;Password=6700982Da");
+            var databaseContext = new DatabaseContext(optionsBuilder.Options); */
         }
+
         // GET: HairdresserService
         public ActionResult Create(int id = 0)
         {

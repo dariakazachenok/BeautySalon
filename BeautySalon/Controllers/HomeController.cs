@@ -1,5 +1,4 @@
-﻿
-using System.Diagnostics;
+﻿using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using BeautySalon.Models;
 using Services;
@@ -8,17 +7,16 @@ namespace BeautySalon.Controllers
 {
     public class HomeController : Controller
     {
-        
-        private readonly ServiсeService serviсeService;
+        private readonly ServiceService serviceService;
 
-        public HomeController()
+        public HomeController(ServiceService serviceService)
         {
-            serviсeService = new ServiсeService();
+            this.serviceService = serviceService;
         }
 
         public IActionResult HairdresserService()
          {
-             var services = serviсeService.GetAllHairdresserService(); 
+             var services = serviceService.GetAllHairdresserService(); 
              var hairdresserServiceListViewModel = new HairdresserServiceListViewModel();
 
              services.ForEach(service =>
@@ -36,7 +34,7 @@ namespace BeautySalon.Controllers
 
         public IActionResult CosmeticService()
         {
-            var services = serviсeService.GetAllCosmeticService(); 
+            var services = serviceService.GetAllCosmeticService(); 
              var cosmeticServiceListViewModel = new CosmeticServiceListViewModel();
 
              services.ForEach(service =>
@@ -54,7 +52,7 @@ namespace BeautySalon.Controllers
 
         public IActionResult Manicure()
         {
-            var services = serviсeService.GetAllManicure();
+            var services = serviceService.GetAllManicure();
             var manicureListViewModel = new ManicureListViewModel();
 
             services.ForEach(service =>

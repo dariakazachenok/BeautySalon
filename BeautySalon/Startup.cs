@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Services;
 
 namespace BeautySalon
 {
@@ -25,6 +26,9 @@ namespace BeautySalon
             // добавляем контекст DatabaseContext в качестве сервиса в приложение
             services.AddDbContext<DatabaseContext>(options =>
                 options.UseSqlServer(connection));
+
+            services.AddTransient<ServiceService, ServiceService>();
+
             services.AddMvc();
         }
 

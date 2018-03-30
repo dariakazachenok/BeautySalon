@@ -1,61 +1,56 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using EntityFramework;
-using Microsoft.EntityFrameworkCore;
 using Models;
 
 namespace Services
 {
-    public class ServiсeService
+    public class ServiceService
     {
+        private readonly DatabaseContext databaseContex;
 
-        private readonly DatabaseContext databaseContext;
-
-        public ServiсeService()
+        public ServiceService(DatabaseContext databaseContex)
         {
-            var optionsBuilder = new DbContextOptionsBuilder<DatabaseContext>();
-            optionsBuilder.UseSqlServer("Server=(localdb)\\mssqllocaldb;Database=beautysalondb;Trusted_Connection=True;MultipleActiveResultSets=true");
-
-            databaseContext = new DatabaseContext(optionsBuilder.Options);
+            this.databaseContex = databaseContex;
         }
 
         public List<HairdresserService> GetAllHairdresserService()
         {
-            return databaseContext.HairdresserServices.ToList();
+            return databaseContex.HairdresserServices.ToList();
         }
 
         public List<CosmeticService> GetAllCosmeticService()
         {
-            return databaseContext.CosmeticServices.ToList();
+            return databaseContex.CosmeticServices.ToList();
         }
 
         public List<Manicure> GetAllManicure()
         {
-            return databaseContext.Manicures.ToList();
+            return databaseContex.Manicures.ToList();
         }
 
         public HairdresserService GetById(int id)
         {
-            return databaseContext.HairdresserServices.FirstOrDefault(x => x.Id == id);
+            return databaseContex.HairdresserServices.FirstOrDefault(x => x.Id == id);
         }
 
        
         public void Create(HairdresserService hairdresserService)
         {
-            databaseContext.HairdresserServices.Add(hairdresserService);
-            databaseContext.SaveChanges();
+            databaseContex.HairdresserServices.Add(hairdresserService);
+            databaseContex.SaveChanges();
         }
 
         public void Edit(HairdresserService hairdresserService)
           {
-              databaseContext.SaveChanges();
+            databaseContex.SaveChanges();
           }
 
           public void Remove(int id)
           {
-              var hairdresserService = databaseContext.HairdresserServices.FirstOrDefault(x => x.Id == id);
-              databaseContext.HairdresserServices.Remove(hairdresserService);
-              databaseContext.SaveChanges();
+              var hairdresserService = databaseContex.HairdresserServices.FirstOrDefault(x => x.Id == id);
+            databaseContex.HairdresserServices.Remove(hairdresserService);
+            databaseContex.SaveChanges();
           }
 
         /*private readonly List<string> HairdresserServices = new List<string>
