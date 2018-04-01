@@ -24,7 +24,7 @@ namespace BeautySalon.Controllers
 
             if (id != 0)
             {
-                var hairdresserService = serviceService.GetById(id);
+                var hairdresserService = serviceService.GetByIdHairdresserService(id);
                 hairdresserServicemodel.Id = hairdresserService.Id;
                 hairdresserServicemodel.Nameservice = hairdresserService.Nameservice;
                 hairdresserServicemodel.Price = hairdresserService.Price;
@@ -47,7 +47,7 @@ namespace BeautySalon.Controllers
 
             if (hairdresserServicemodel.Id != null)
             {
-                hairdresserService = serviceService.GetById(hairdresserServicemodel.Id.Value);
+                hairdresserService = serviceService.GetByIdHairdresserService(hairdresserServicemodel.Id.Value);
             }
 
             hairdresserService.Nameservice = hairdresserServicemodel.Nameservice;
@@ -80,7 +80,7 @@ namespace BeautySalon.Controllers
 
         public ActionResult Delete(int id)
         {
-            serviceService.Remove(id);
+            serviceService.RemoveHairdresserService(id);
             var hairdresserservices = serviceService.GetAllHairdresserService();
             var hairdresserServiceListViewModel = new HairdresserServiceListViewModel();
 

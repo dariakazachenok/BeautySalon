@@ -11,7 +11,7 @@
         <tr>
             <th>№</th>
             <th>Name service</th>
-            <th>Price</th>
+            <th>Price,$</th>
             <th></th>
             <th></th>
         </tr>
@@ -20,27 +20,27 @@
          {
             var item = Model.HairdresserService[i];
             var displayIndex = i + 1;
-        <tr>
-            <td>
-                @displayIndex
-            </td>
+            <tr>
+                <td>
+                    @displayIndex
+                </td>
 
-            <td>
-                @item.Nameservice
-            </td>
+                <td>
+                    @item.Nameservice
+                </td>
 
-            <td>
-                @item.Price
-            </td>
+                <td>
+                    @item.Price
+                </td>
 
-            <td>
-                <a href="@Url.Action("Create", "HairdresserServices", new{@item.Id})">Edit</a>
-            </td>
+                <td>
+                    <a href="@Url.Action("Create", "HairdresserServices", new{@item.Id})">Edit</a>
+                </td>
 
-            <td>
-                <a href="@Url.Action("Delete", "HairdresserServices", new{@item.Id})">Delete</a>
-            </td>
-        </tr>
+                <td>
+                    <a href="@Url.Action("Delete", "HairdresserServices", new{@item.Id})">Delete</a>
+                </td>
+            </tr>
          }
     </table>
 </div>

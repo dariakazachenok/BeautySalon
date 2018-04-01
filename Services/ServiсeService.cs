@@ -29,7 +29,7 @@ namespace Services
             return databaseContex.Manicures.ToList();
         }
 
-        public HairdresserService GetById(int id)
+        public HairdresserService GetByIdHairdresserService(int id)
         {
             return databaseContex.HairdresserServices.FirstOrDefault(x => x.Id == id);
         }
@@ -42,16 +42,38 @@ namespace Services
         }
 
         public void Edit(HairdresserService hairdresserService)
-          {
+        {
             databaseContex.SaveChanges();
-          }
+        }
 
-          public void Remove(int id)
-          {
-              var hairdresserService = databaseContex.HairdresserServices.FirstOrDefault(x => x.Id == id);
+        public void RemoveHairdresserService(int id)
+        {
+            var hairdresserService = databaseContex.HairdresserServices.FirstOrDefault(x => x.Id == id);
             databaseContex.HairdresserServices.Remove(hairdresserService);
             databaseContex.SaveChanges();
-          }
+        }
+        public CosmeticService GetByIdCosmeticService(int id)
+        {
+            return databaseContex.CosmeticServices.FirstOrDefault(x => x.Id == id);
+        }
+
+        public void Create(CosmeticService cosmeticService)
+        {
+              databaseContex.CosmeticServices.Add(cosmeticService);
+              databaseContex.SaveChanges();
+        }
+
+        public void Edit(CosmeticService hairdresserService)
+        {
+             databaseContex.SaveChanges();
+        }
+
+        public void RemoveCosmeticService(int id)
+        {
+             var cosmeticService = databaseContex.CosmeticServices.FirstOrDefault(x => x.Id == id);
+             databaseContex.CosmeticServices.Remove(cosmeticService);
+             databaseContex.SaveChanges();
+        }
 
         /*private readonly List<string> HairdresserServices = new List<string>
         {
