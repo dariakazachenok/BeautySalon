@@ -1,10 +1,10 @@
-﻿@model HairdresserServiceListViewModel
+﻿@model CosmeticServiceListViewModel
 
 @{
-    ViewData["Title"] = "HairdresserService";
+    ViewData["Title"] = "CosmeticService";
 }
 
-<h2>Hairdresser Services</h2>
+<h2>Cosmetic Services</h2>
 
 <div class="row margin-top-10">
     <table class="table table-striped">
@@ -16,9 +16,9 @@
             <th></th>
         </tr>
 
-        @for (int i = 0; i < Model.HairdresserService.Count; i++)
-         {
-            var item = Model.HairdresserService[i];
+        @for (int i = 0; i < Model.CosmeticService.Count; i++)
+        {
+            var item = Model.CosmeticService[i];
             var displayIndex = i + 1;
             <tr>
                 <td>
@@ -34,22 +34,20 @@
                 </td>
 
                 <td>
-                    <a href="@Url.Action("Create", "HairdresserServices", new{@item.Id})">Edit</a>
+                    <a href="@Url.Action("Create", "CosmeticServices", new{@item.Id})">Edit</a>
                 </td>
 
                 <td>
-                    <a href="@Url.Action("Delete", "HairdresserServices", new{@item.Id})">Delete</a>
+                    <a href="@Url.Action("Delete", "CosmeticServices", new{@item.Id})">Delete</a>
                 </td>
             </tr>
-         }
+        }
     </table>
 </div>
 
 <div>
-    @Html.ActionLink("Add service", "Create", "HairdresserServices") </br>
+    @Html.ActionLink("Add service", "Create", "CosmeticServices") </br>
    
     @Html.ActionLink("Go back to main page", "../Home/Index")
 </div>
-
-
 
