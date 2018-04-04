@@ -17,6 +17,24 @@ namespace BeautySalon.Controllers
             var databaseContext = new DatabaseContext(optionsBuilder.Options); */
         }
 
+        public IActionResult HairdresserService()
+        {
+            var services = serviceService.GetAllHairdresserService();
+            var hairdresserServiceListViewModel = new HairdresserServiceListViewModel();
+
+            services.ForEach(service =>
+            {
+                var serviceModel = new HairdresserServiceListItemViewModel();
+                serviceModel.Id = service.Id;
+                serviceModel.Nameservice = service.Nameservice;
+                serviceModel.Price = service.Price;
+
+                hairdresserServiceListViewModel.HairdresserService.Add(serviceModel);
+            });
+
+            return View(hairdresserServiceListViewModel);
+        }
+
         // GET: HairdresserService
         public ActionResult Create(int id = 0)
         {
@@ -75,7 +93,7 @@ namespace BeautySalon.Controllers
 
                 hairdresserServiceViewModel.HairdresserService.Add(serviceModel);
             });
-            return View("../Home/HairdresserService", hairdresserServiceViewModel);
+            return View("HairdresserService", hairdresserServiceViewModel);
         } 
 
         public ActionResult Delete(int id)
@@ -94,7 +112,7 @@ namespace BeautySalon.Controllers
                 hairdresserServiceListViewModel.HairdresserService.Add(serviceModel);
             });
 
-            return View("../Home/HairdresserService", hairdresserServiceListViewModel);
+            return View("HairdresserService", hairdresserServiceListViewModel);
         }
     }
 }

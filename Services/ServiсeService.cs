@@ -34,7 +34,6 @@ namespace Services
             return databaseContex.HairdresserServices.FirstOrDefault(x => x.Id == id);
         }
 
-       
         public void Create(HairdresserService hairdresserService)
         {
             databaseContex.HairdresserServices.Add(hairdresserService);
@@ -63,7 +62,7 @@ namespace Services
               databaseContex.SaveChanges();
         }
 
-        public void Edit(CosmeticService hairdresserService)
+        public void Edit(CosmeticService cosmeticService)
         {
              databaseContex.SaveChanges();
         }
@@ -75,36 +74,28 @@ namespace Services
              databaseContex.SaveChanges();
         }
 
-        /*private readonly List<string> HairdresserServices = new List<string>
+        public Manicure GetByIdManicure(int id)
         {
-            "Haircut for men", "Haircut for women", "Difficult coloring (ombre, balayage, shatush, bronzing)", "Lamination of hair", "Hair extension", "Hairstyle",
-            "Coloring your hair with your paint"
-        }; 
-
-        public List<string> GetAllHairdresserServices()
-        {
-            return HairdresserServices.ToList();
+            return databaseContex.Manicures.FirstOrDefault(x => x.Id == id);
         }
 
-        private readonly List<string> Manicure = new List<string>
+        public void Create(Manicure manicure)
         {
-            "Classic manicure", "Colorless coating", "Coating removal", "Hand care", "Pedicure", "Hand / Feet massage", "Nail extension" 
-        };
-
-        public List<string> GetAllManicure()
-        {
-            return Manicure.ToList();
+            databaseContex.Manicures.Add(manicure);
+            databaseContex.SaveChanges();
         }
 
-        private readonly List<string> CosmeticServices = new List<string>
+        public void Edit(Manicure manicure)
         {
-            "Eyelash extension", "Face cleaning", "Eyebrow correction", "Anti - aging spa care", "Treatment of hair loss", "Care for sensitive skin"
-        };
+            databaseContex.SaveChanges();
+        }
 
-        public List<string> GetAllCosmeticServices()
+        public void RemoveManicure(int id)
         {
-            return CosmeticServices.ToList();
-        } */
+            var manicure = databaseContex.Manicures.FirstOrDefault(x => x.Id == id);
+            databaseContex.Manicures.Remove(manicure);
+            databaseContex.SaveChanges();
+        }
     }    
 }
 

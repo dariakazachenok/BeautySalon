@@ -12,9 +12,24 @@ namespace BeautySalon.Controllers
         public CosmeticServicesController(ServiceService serviceService)
         {
             this.serviceService = serviceService;
-            /*var optionsBuilder = new DbContextOptionsBuilder<DatabaseContext>();
-            optionsBuilder.UseSqlServer("Server=localdb-mssqllocaldb.database.windows.net;Database=beautysalondb;User Id=Dasha;Password=6700982Da");
-            var databaseContext = new DatabaseContext(optionsBuilder.Options); */
+        }
+
+        public IActionResult CosmeticService()
+        {
+            var services = serviceService.GetAllCosmeticService();
+            var cosmeticServiceListViewModel = new CosmeticServiceListViewModel();
+
+            services.ForEach(service =>
+            {
+                var serviceModel = new CosmeticServiceListItemViewModel();
+                serviceModel.Id = service.Id;
+                serviceModel.Nameservice = service.Nameservice;
+                serviceModel.Price = service.Price;
+
+                cosmeticServiceListViewModel.CosmeticService.Add(serviceModel);
+            });
+
+            return View(cosmeticServiceListViewModel);
         }
 
         // GET: CosmeticService
@@ -75,7 +90,7 @@ namespace BeautySalon.Controllers
 
                 cosmeticServiceViewModel.CosmeticService.Add(serviceModel);
             });
-            return View("../Home/CosmeticService", cosmeticServiceViewModel);
+            return View("CosmeticService", cosmeticServiceViewModel);
         } 
 
         public ActionResult Delete(int id)
@@ -94,7 +109,7 @@ namespace BeautySalon.Controllers
                 cosmeticServiceListViewModel.CosmeticService.Add(serviceModel);
             });
 
-            return View("../Home/CosmeticService", cosmeticServiceListViewModel);
+            return View("CosmeticService", cosmeticServiceListViewModel);
         }
     }
 }

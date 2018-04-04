@@ -1,5 +1,3 @@
-
-
 namespace BeautySalon.Models
 {
     public class HairdresserServiceListItemViewModel
