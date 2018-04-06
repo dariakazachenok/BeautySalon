@@ -14,7 +14,7 @@ namespace BeautySalon.Controllers
             this.serviceService = serviceService;
         }
 
-        public IActionResult Manicure()
+        public IActionResult Index()
         {
             var services = serviceService.GetAllManicure();
             var manicureListViewModel = new ManicureListViewModel();
@@ -90,7 +90,7 @@ namespace BeautySalon.Controllers
 
                 manicureViewModel.Manicure.Add(serviceModel);
             });
-            return View("Manicure", manicureViewModel);
+            return View("Index", manicureViewModel);
         } 
 
         public ActionResult Delete(int id)
@@ -109,7 +109,7 @@ namespace BeautySalon.Controllers
                 manicureListViewModel.Manicure.Add(serviceModel);
             });
 
-            return View("Manicure", manicureListViewModel);
+            return View("Index", manicureListViewModel);
         }
     }
 }

@@ -1,7 +1,7 @@
 ﻿@model CosmeticServiceListViewModel
 
 @{
-    ViewData["Title"] = "CosmeticService";
+    ViewData["Title"] = "Index";
 }
 
 <h2>Cosmetic Services</h2>
@@ -48,6 +48,6 @@
 <div>
     @Html.ActionLink("Add service", "Create", "CosmeticServices") </br>
    
-    @Html.ActionLink("Go back to main page", "../Home/Index")
+    @Html.ActionLink("Go back to main page", "Index", "Home")
 </div>
 
