@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Models;
 using Services;
+using System;
 
 namespace BeautySalon.Controllers
 {
@@ -53,7 +54,6 @@ namespace BeautySalon.Controllers
 
         [HttpPost]
 
-
         public ActionResult Update(HairdresserServiceModel hairdresserServicemodel)
         {
             if (!ModelState.IsValid)
@@ -62,39 +62,31 @@ namespace BeautySalon.Controllers
             };
 
             HairdresserService hairdresserService = new HairdresserService();
-
-            if (hairdresserServicemodel.Id != null)
-            {
-                hairdresserService = serviceService.GetByIdHairdresserService(hairdresserServicemodel.Id.Value);
-            }
-
-            hairdresserService.Nameservice = hairdresserServicemodel.Nameservice;
-            hairdresserService.Price = hairdresserServicemodel.Price;
-
-            if (hairdresserServicemodel.Id != null)
-            {
-                serviceService.Edit(hairdresserService);
-            }
-            else
-            {
-                serviceService.Create(hairdresserService);
-            }
-
-            var hairdresserservices = serviceService.GetAllHairdresserService();
             var hairdresserServiceViewModel = new HairdresserServiceListViewModel();
 
-            hairdresserservices.ForEach(sv =>
+            if (hairdresserServicemodel.Id != null)
             {
-                var serviceModel = new HairdresserServiceListItemViewModel();
-                serviceModel.Nameservice = sv.Nameservice;
-                serviceModel.Price= sv.Price;
-                serviceModel.Id = sv.Id;
+                /*hairdresserService = serviceService.GetByIdHairdresserService(hairdresserServicemodel.Id.Value);*/
+                hairdresserService.Id = hairdresserServicemodel.Id.HasValue ? hairdresserServicemodel.Id.Value : 0;
+                hairdresserService.Nameservice = hairdresserServicemodel.Nameservice;
+                hairdresserService.Price = hairdresserServicemodel.Price;
+                serviceService.Edit(hairdresserService);
 
+                var hairdresserservices = serviceService.GetAllHairdresserService();
+                hairdresserservices.ForEach(hr =>
+                {
+                    var serviceModel = new HairdresserServiceListItemViewModel();
+                    serviceModel.Nameservice = hr.Nameservice;
+                    serviceModel.Price = hr.Price;
+                    serviceModel.Id = hr.Id;
 
-                hairdresserServiceViewModel.HairdresserService.Add(serviceModel);
-            });
+                    hairdresserServiceViewModel.HairdresserService.Add(serviceModel);
+                });
+            }
+
+            Console.WriteLine("Error");
             return View("Index", hairdresserServiceViewModel);
-        } 
+        }
 
         public ActionResult Delete(int id)
         {

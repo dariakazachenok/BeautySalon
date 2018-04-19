@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Models;
 using Services;
+using System;
 
 namespace BeautySalon.Controllers
 {
@@ -50,7 +51,6 @@ namespace BeautySalon.Controllers
 
         [HttpPost]
 
-
         public ActionResult Update(ManicureModel manicuremodel)
         {
             if (!ModelState.IsValid)
@@ -59,39 +59,29 @@ namespace BeautySalon.Controllers
             };
 
             Manicure manicure = new Manicure();
+            var manicureViewModel = new ManicureListViewModel();
 
             if (manicuremodel.Id != null)
             {
                 manicure = serviceService.GetByIdManicure(manicuremodel.Id.Value);
-            }
-
-            manicure.Nameservice = manicuremodel.Nameservice;
-            manicure.Price = manicuremodel.Price;
-
-            if (manicuremodel.Id != null)
-            {
+                manicure.Nameservice = manicuremodel.Nameservice;
+                manicure.Price = manicuremodel.Price;
                 serviceService.Edit(manicure);
+
+                var manicures = serviceService.GetAllManicure();
+                manicures.ForEach(m =>
+                {
+                    var serviceModel = new ManicureListItemViewModel();
+                    serviceModel.Nameservice = m.Nameservice;
+                    serviceModel.Price = m.Price;
+                    serviceModel.Id = m.Id;
+
+                    manicureViewModel.Manicure.Add(serviceModel);
+                });
             }
-            else
-            {
-                serviceService.Create(manicure);
-            }
-
-            var manicures = serviceService.GetAllManicure();
-            var manicureViewModel = new ManicureListViewModel();
-
-            manicures.ForEach(sv =>
-            {
-                var serviceModel = new ManicureListItemViewModel();
-                serviceModel.Nameservice = sv.Nameservice;
-                serviceModel.Price= sv.Price;
-                serviceModel.Id = sv.Id;
-
-
-                manicureViewModel.Manicure.Add(serviceModel);
-            });
+            Console.WriteLine("Error");
             return View("Index", manicureViewModel);
-        } 
+        }
 
         public ActionResult Delete(int id)
         {

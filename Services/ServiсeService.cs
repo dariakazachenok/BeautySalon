@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using EntityFramework;
+using Microsoft.EntityFrameworkCore;
 using Models;
 
 namespace Services
@@ -41,7 +42,12 @@ namespace Services
         }
 
         public void Edit(HairdresserService hairdresserService)
-        {
+        {   
+            //1
+            databaseContex.Entry(hairdresserService).State = EntityState.Modified;
+
+            //2
+           // databaseContex.Update(hairdresserService);
             databaseContex.SaveChanges();
         }
 
@@ -64,7 +70,11 @@ namespace Services
 
         public void Edit(CosmeticService cosmeticService)
         {
-             databaseContex.SaveChanges();
+            //1
+            databaseContex.Entry(cosmeticService).State = EntityState.Modified;
+
+            //2
+            // databaseContex.Update(cosmeticService);
         }
 
         public void RemoveCosmeticService(int id)
@@ -86,7 +96,7 @@ namespace Services
         }
 
         public void Edit(Manicure manicure)
-        {
+        {   
             databaseContex.SaveChanges();
         }
 
