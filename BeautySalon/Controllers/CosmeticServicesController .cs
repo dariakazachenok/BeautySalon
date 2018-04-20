@@ -41,11 +41,11 @@ namespace BeautySalon.Controllers
         }
 
         // GET: CosmeticService
-        public ActionResult Update(int id = 0)
+        public ActionResult Update(int id)
         {
             var cosmeticServicemodel = new CosmeticServiceModel();
 
-            if (id != 0)
+            if (id != null)
             {
                 var cosmeticService = serviceService.GetByIdCosmeticService(id);
                 cosmeticServicemodel.Id = cosmeticService.Id;
@@ -86,13 +86,12 @@ namespace BeautySalon.Controllers
                     cosmeticServiceViewModel.CosmeticService.Add(serviceModel);
                 });
             }
-            Console.WriteLine("Error");
             return View("Index", cosmeticServiceViewModel);
         }
 
         [HttpPost]
 
-        public ActionResult Create (CosmeticServiceModel cosmeticServicemodel)
+        public ActionResult Create(CosmeticServiceModel cosmeticServicemodel)
         {
             if (!ModelState.IsValid)
             {
@@ -105,23 +104,25 @@ namespace BeautySalon.Controllers
             if (cosmeticServicemodel.Id != null)
             {
                 Console.WriteLine("Error");
-            } 
-             cosmeticService.Id = cosmeticServicemodel.Id.HasValue ? cosmeticServicemodel.Id.Value : 0;
-                cosmeticService.Nameservice = cosmeticServicemodel.Nameservice;
-                cosmeticService.Price = cosmeticServicemodel.Price;
-                serviceService.Create(cosmeticService); 
+            }
 
-                var cosmeticservices = serviceService.GetAllCosmeticService();
-                cosmeticservices.ForEach(cos =>
-                {
-                    var serviceModel = new CosmeticServiceListItemViewModel();
-                    serviceModel.Nameservice = cos.Nameservice;
-                    serviceModel.Price = cos.Price;
-                    serviceModel.Id = cos.Id;
+            cosmeticService.Id = cosmeticServicemodel.Id.HasValue ? cosmeticServicemodel.Id.Value : 0;
+            cosmeticService.Nameservice = cosmeticServicemodel.Nameservice;
+            cosmeticService.Price = cosmeticServicemodel.Price;
+            serviceService.Create(cosmeticService);
 
-                    cosmeticServiceViewModel.CosmeticService.Add(serviceModel);
-                });
-                return View("Index", cosmeticServiceViewModel);
+            var cosmeticservices = serviceService.GetAllCosmeticService();
+            cosmeticservices.ForEach(cos =>
+            {
+                var serviceModel = new CosmeticServiceListItemViewModel();
+                serviceModel.Nameservice = cos.Nameservice;
+                serviceModel.Price = cos.Price;
+                serviceModel.Id = cos.Id;
+
+                cosmeticServiceViewModel.CosmeticService.Add(serviceModel);
+
+            });
+            return View("Index", cosmeticServiceViewModel);
         }
 
         public ActionResult Delete(int id)
@@ -139,7 +140,6 @@ namespace BeautySalon.Controllers
 
                 cosmeticServiceListViewModel.CosmeticService.Add(serviceModel);
             });
-
             return View("Index", cosmeticServiceListViewModel);
         }
     }

@@ -49,6 +49,7 @@ namespace BeautySalon.Controllers
                 hairdresserServicemodel.Price = hairdresserService.Price;
                 
             }
+
             return View("Create", hairdresserServicemodel);
         }
 
