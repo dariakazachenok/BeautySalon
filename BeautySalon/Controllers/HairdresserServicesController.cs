@@ -47,7 +47,6 @@ namespace BeautySalon.Controllers
                 hairdresserServicemodel.Id = hairdresserService.Id;
                 hairdresserServicemodel.Nameservice = hairdresserService.Nameservice;
                 hairdresserServicemodel.Price = hairdresserService.Price;
-                
             }
 
             return View("Create", hairdresserServicemodel);

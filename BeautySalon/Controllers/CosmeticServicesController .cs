@@ -45,13 +45,10 @@ namespace BeautySalon.Controllers
         {
             var cosmeticServicemodel = new CosmeticServiceModel();
 
-            if (id != null)
-            {
-                var cosmeticService = serviceService.GetByIdCosmeticService(id);
-                cosmeticServicemodel.Id = cosmeticService.Id;
-                cosmeticServicemodel.Nameservice = cosmeticService.Nameservice;
-                cosmeticServicemodel.Price = cosmeticService.Price;
-            }
+            var cosmeticService = serviceService.GetByIdCosmeticService(id);
+            cosmeticServicemodel.Id = cosmeticService.Id;
+            cosmeticServicemodel.Nameservice = cosmeticService.Nameservice;
+            cosmeticServicemodel.Price = cosmeticService.Price;
             return View("Update", cosmeticServicemodel);
         }
 
