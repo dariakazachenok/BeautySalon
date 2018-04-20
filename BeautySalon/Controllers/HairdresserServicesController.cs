@@ -34,6 +34,7 @@ namespace BeautySalon.Controllers
             });
 
             return View(hairdresserServiceListViewModel);
+            return RedirectToAction("Complete", new { id = 123 });
         }
 
         // GET: HairdresserService
@@ -64,27 +65,23 @@ namespace BeautySalon.Controllers
             HairdresserService hairdresserService = new HairdresserService();
             var hairdresserServiceViewModel = new HairdresserServiceListViewModel();
 
-            if (hairdresserServicemodel.Id != null)
+            /*hairdresserService = serviceService.GetByIdHairdresserService(hairdresserServicemodel.Id.Value);*/
+            hairdresserService.Id = hairdresserServicemodel.Id.HasValue ? hairdresserServicemodel.Id.Value : 0;
+            hairdresserService.Nameservice = hairdresserServicemodel.Nameservice;
+            hairdresserService.Price = hairdresserServicemodel.Price;
+            serviceService.Edit(hairdresserService);
+
+            var hairdresserservices = serviceService.GetAllHairdresserService();
+            hairdresserservices.ForEach(hr =>
             {
-                /*hairdresserService = serviceService.GetByIdHairdresserService(hairdresserServicemodel.Id.Value);*/
-                hairdresserService.Id = hairdresserServicemodel.Id.HasValue ? hairdresserServicemodel.Id.Value : 0;
-                hairdresserService.Nameservice = hairdresserServicemodel.Nameservice;
-                hairdresserService.Price = hairdresserServicemodel.Price;
-                serviceService.Edit(hairdresserService);
+                var serviceModel = new HairdresserServiceListItemViewModel();
+                serviceModel.Nameservice = hr.Nameservice;
+                serviceModel.Price = hr.Price;
+                serviceModel.Id = hr.Id;
 
-                var hairdresserservices = serviceService.GetAllHairdresserService();
-                hairdresserservices.ForEach(hr =>
-                {
-                    var serviceModel = new HairdresserServiceListItemViewModel();
-                    serviceModel.Nameservice = hr.Nameservice;
-                    serviceModel.Price = hr.Price;
-                    serviceModel.Id = hr.Id;
+                hairdresserServiceViewModel.HairdresserService.Add(serviceModel);
+            });
 
-                    hairdresserServiceViewModel.HairdresserService.Add(serviceModel);
-                });
-            }
-
-            Console.WriteLine("Error");
             return View("Index", hairdresserServiceViewModel);
         }
 

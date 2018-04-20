@@ -75,6 +75,7 @@ namespace Services
 
             //2
             // databaseContex.Update(cosmeticService);
+            databaseContex.SaveChanges();
         }
 
         public void RemoveCosmeticService(int id)
