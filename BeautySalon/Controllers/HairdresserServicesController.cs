@@ -34,7 +34,6 @@ namespace BeautySalon.Controllers
             });
 
             return View(hairdresserServiceListViewModel);
-            return RedirectToAction("Complete", new { id = 123 });
         }
 
         // GET: HairdresserService

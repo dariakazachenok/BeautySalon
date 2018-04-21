@@ -115,6 +115,7 @@ namespace BeautySalon.Controllers
 
                 cosmeticServiceListViewModel.CosmeticService.Add(serviceModel);
             });
+
             return View("Index", cosmeticServiceListViewModel);
         }
     }
