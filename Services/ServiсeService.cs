@@ -97,7 +97,12 @@ namespace Services
         }
 
         public void Edit(Manicure manicure)
-        {   
+        {
+            //1
+            databaseContex.Entry(manicure).State = EntityState.Modified;
+
+            //2
+            // databaseContex.Update(manicure);
             databaseContex.SaveChanges();
         }
 

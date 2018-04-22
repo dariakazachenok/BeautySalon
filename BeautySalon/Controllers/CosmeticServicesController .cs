@@ -91,7 +91,6 @@ namespace BeautySalon.Controllers
             CosmeticService cosmeticService = new CosmeticService();
             var cosmeticServiceViewModel = new CosmeticServiceListViewModel();
 
-            //cosmeticService = serviceService.GetByIdCosmeticService(cosmeticServicemodel.Id.Value);
             cosmeticService.Id = cosmeticServicemodel.Id.HasValue ? cosmeticServicemodel.Id.Value : 0;
             cosmeticService.Nameservice = cosmeticServicemodel.Nameservice;
             cosmeticService.Price = cosmeticServicemodel.Price;

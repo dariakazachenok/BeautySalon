@@ -33,54 +33,72 @@ namespace BeautySalon.Controllers
             return View(manicureListViewModel);
         }
 
-        // GET: HairdresserService
+        // GET:  Manicure
         public ActionResult Create(int id = 0)
         {
             var manicuremodel = new ManicureModel();
 
-            if (id != 0)
-            {
-                var manicure = serviceService.GetByIdManicure(id);
-                manicuremodel.Id = manicure.Id;
-                manicuremodel.Nameservice = manicure.Nameservice;
-                manicuremodel.Price = manicure.Price;
-                
-            }
             return View("Create", manicuremodel);
         }
 
         [HttpPost]
 
-        public ActionResult Update(ManicureModel manicuremodel)
+        public ActionResult Create(ManicureModel manicureModel)
         {
             if (!ModelState.IsValid)
             {
-                return View("Create", manicuremodel);
+                return View("Create", manicureModel);
+            };
+
+            Manicure manicure = new Manicure ();
+            var manicureViewModel = new ManicureListViewModel();
+
+            if (manicureModel.Id != null)
+            {
+                Console.WriteLine("Error");
+            }
+
+            manicure.Id = manicureModel.Id.HasValue ? manicureModel.Id.Value : 0;
+            manicure.Nameservice = manicureModel.Nameservice;
+            manicure.Price = manicureModel.Price;
+            serviceService.Create(manicure);
+
+            return RedirectToAction("Index");
+        }
+
+        // GET: Manicure
+        public ActionResult Update(int id)
+        {
+            var manicureModel = new ManicureModel();
+
+            var manicure = serviceService.GetByIdManicure(id);
+            manicureModel.Id = manicure.Id;
+            manicureModel.Nameservice = manicure.Nameservice;
+            manicureModel.Price = manicure.Price;
+
+            return View("Update", manicureModel);
+        }
+
+        [HttpPost]
+
+        public ActionResult Update(ManicureModel manicureModel)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View("Update", manicureModel);
             };
 
             Manicure manicure = new Manicure();
             var manicureViewModel = new ManicureListViewModel();
 
-            if (manicuremodel.Id != null)
+            if (manicureModel.Id != null)
             {
-                manicure = serviceService.GetByIdManicure(manicuremodel.Id.Value);
-                manicure.Nameservice = manicuremodel.Nameservice;
-                manicure.Price = manicuremodel.Price;
+                manicure = serviceService.GetByIdManicure(manicureModel.Id.Value);
+                manicure.Nameservice = manicureModel.Nameservice;
+                manicure.Price = manicureModel.Price;
                 serviceService.Edit(manicure);
-
-                var manicures = serviceService.GetAllManicure();
-                manicures.ForEach(m =>
-                {
-                    var serviceModel = new ManicureListItemViewModel();
-                    serviceModel.Nameservice = m.Nameservice;
-                    serviceModel.Price = m.Price;
-                    serviceModel.Id = m.Id;
-
-                    manicureViewModel.Manicure.Add(serviceModel);
-                });
             }
-            Console.WriteLine("Error");
-            return View("Index", manicureViewModel);
+            return RedirectToAction("Index");
         }
 
         public ActionResult Delete(int id)
