@@ -13,9 +13,6 @@ namespace BeautySalon.Controllers
         public HairdresserServicesController(ServiceService serviceService)
         {
             this.serviceService = serviceService;
-            /*var optionsBuilder = new DbContextOptionsBuilder<DatabaseContext>();
-            optionsBuilder.UseSqlServer("Server=localdb-mssqllocaldb.database.windows.net;Database=beautysalondb;User Id=Dasha;Password=6700982Da");
-            var databaseContext = new DatabaseContext(optionsBuilder.Options); */
         }
 
         public IActionResult Index()
@@ -41,20 +38,12 @@ namespace BeautySalon.Controllers
         {
             var hairdresserServicemodel = new HairdresserServiceModel();
 
-            if (id != 0)
-            {
-                var hairdresserService = serviceService.GetByIdHairdresserService(id);
-                hairdresserServicemodel.Id = hairdresserService.Id;
-                hairdresserServicemodel.Nameservice = hairdresserService.Nameservice;
-                hairdresserServicemodel.Price = hairdresserService.Price;
-            }
-
             return View("Create", hairdresserServicemodel);
         }
 
         [HttpPost]
 
-        public ActionResult Update(HairdresserServiceModel hairdresserServicemodel)
+        public ActionResult Create(HairdresserServiceModel hairdresserServicemodel)
         {
             if (!ModelState.IsValid)
             {
@@ -64,24 +53,50 @@ namespace BeautySalon.Controllers
             HairdresserService hairdresserService = new HairdresserService();
             var hairdresserServiceViewModel = new HairdresserServiceListViewModel();
 
-            /*hairdresserService = serviceService.GetByIdHairdresserService(hairdresserServicemodel.Id.Value);*/
+            if (hairdresserServicemodel.Id != null)
+            {
+                Console.WriteLine("Error");
+            }
+
+            hairdresserService.Id = hairdresserServicemodel.Id.HasValue ? hairdresserServicemodel.Id.Value : 0;
+            hairdresserService.Nameservice = hairdresserServicemodel.Nameservice;
+            hairdresserService.Price = hairdresserServicemodel.Price;
+            serviceService.Create(hairdresserService);
+
+            return RedirectToAction("Index");
+        }
+
+        // GET: HairdresserService
+        public ActionResult Update(int id)
+        {
+            var hairdresserServicemodel = new HairdresserServiceModel();
+
+            var hairdresserService = serviceService.GetByIdHairdresserService(id);
+            hairdresserServicemodel.Id = hairdresserService.Id;
+            hairdresserServicemodel.Nameservice = hairdresserService.Nameservice;
+            hairdresserServicemodel.Price = hairdresserService.Price;
+
+            return View("Update", hairdresserServicemodel);
+        }
+
+        [HttpPost]
+
+        public ActionResult Update(HairdresserServiceModel hairdresserServicemodel)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View("Update", hairdresserServicemodel);
+            };
+
+            HairdresserService hairdresserService = new HairdresserService();
+            var hairdresserServiceViewModel = new HairdresserServiceListViewModel();
+
             hairdresserService.Id = hairdresserServicemodel.Id.HasValue ? hairdresserServicemodel.Id.Value : 0;
             hairdresserService.Nameservice = hairdresserServicemodel.Nameservice;
             hairdresserService.Price = hairdresserServicemodel.Price;
             serviceService.Edit(hairdresserService);
 
-            var hairdresserservices = serviceService.GetAllHairdresserService();
-            hairdresserservices.ForEach(hr =>
-            {
-                var serviceModel = new HairdresserServiceListItemViewModel();
-                serviceModel.Nameservice = hr.Nameservice;
-                serviceModel.Price = hr.Price;
-                serviceModel.Id = hr.Id;
-
-                hairdresserServiceViewModel.HairdresserService.Add(serviceModel);
-            });
-
-            return View("Index", hairdresserServiceViewModel);
+            return RedirectToAction("Index");
         }
 
         public ActionResult Delete(int id)

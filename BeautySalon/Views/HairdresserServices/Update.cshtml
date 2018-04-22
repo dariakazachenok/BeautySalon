@@ -1,0 +1,15 @@
+﻿@model Models.HairdresserServiceModel
+@{
+
+    ViewData["Title"] = "Update";
+}
+
+<h2>Update hairdresserservice</h2>
+
+<form action="@Url.Action("Update", "HairdresserServices")" enctype="multipart/form-data" method="POST" class="form-horizontal">
+
+    @Html.Partial("HairdresserDetails");
+
+</form>
+
+

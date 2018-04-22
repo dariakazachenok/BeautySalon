@@ -1,8 +1,6 @@
-﻿
-@model Models.CosmeticServiceModel
+﻿@model Models.HairdresserServiceModel
 @{
-
-    ViewData["Title"] = "Mypartial";
+    ViewData["Title"] = "HairdresserDetails";
 }
 
 @Html.AntiForgeryToken()
@@ -11,10 +9,10 @@
 
 <hr />
 @Html.ValidationSummary(true)
+
 <div>
+
     @Html.HiddenFor(model => model.Id)
-
-
     @Html.LabelFor(model => model.Nameservice, "Nameservice")
     <br />
 
