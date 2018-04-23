@@ -27,7 +27,7 @@ namespace BeautySalon.Controllers
                 serviceModel.Nameservice = service.Nameservice;
                 serviceModel.Price = service.Price;
 
-                hairdresserServiceListViewModel.HairdresserService.Add(serviceModel);
+                hairdresserServiceListViewModel.HairdresserServices.Add(serviceModel);
             });
 
             return View(hairdresserServiceListViewModel);
@@ -102,20 +102,8 @@ namespace BeautySalon.Controllers
         public ActionResult Delete(int id)
         {
             serviceService.RemoveHairdresserService(id);
-            var hairdresserservices = serviceService.GetAllHairdresserService();
-            var hairdresserServiceListViewModel = new HairdresserServiceListViewModel();
 
-            hairdresserservices.ForEach(sv =>
-            {
-                var serviceModel = new HairdresserServiceListItemViewModel();
-                serviceModel.Nameservice = sv.Nameservice;
-                serviceModel.Price = sv.Price;
-                serviceModel.Id = sv.Id;
-
-                hairdresserServiceListViewModel.HairdresserService.Add(serviceModel);
-            });
-
-            return View("Index", hairdresserServiceListViewModel);
+            return RedirectToAction("Index");
         }
     }
 }

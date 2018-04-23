@@ -5,11 +5,11 @@ namespace BeautySalon.Models
     public class HairdresserServiceListViewModel
     {
 
-       public List<HairdresserServiceListItemViewModel> HairdresserService { get; set; }
+       public List<HairdresserServiceListItemViewModel> HairdresserServices { get; set; }
 
         public HairdresserServiceListViewModel()
         {
-            HairdresserService = new List<HairdresserServiceListItemViewModel>();
+            HairdresserServices = new List<HairdresserServiceListItemViewModel>();
         }
     }
 }

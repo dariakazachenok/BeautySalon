@@ -27,7 +27,7 @@ namespace BeautySalon.Controllers
                 serviceModel.Nameservice = service.Nameservice;
                 serviceModel.Price = service.Price;
 
-                manicureListViewModel.Manicure.Add(serviceModel);
+                manicureListViewModel.Manicures.Add(serviceModel);
             });
 
             return View(manicureListViewModel);
@@ -104,20 +104,8 @@ namespace BeautySalon.Controllers
         public ActionResult Delete(int id)
         {
             serviceService.RemoveManicure(id);
-            var manicures = serviceService.GetAllManicure();
-            var manicureListViewModel = new ManicureListViewModel();
 
-            manicures.ForEach(m =>
-            {
-                var serviceModel = new ManicureListItemViewModel();
-                serviceModel.Nameservice = m.Nameservice;
-                serviceModel.Price = m.Price;
-                serviceModel.Id = m.Id;
-
-                manicureListViewModel.Manicure.Add(serviceModel);
-            });
-
-            return View("Index", manicureListViewModel);
+            return RedirectToAction("Index");
         }
     }
 }

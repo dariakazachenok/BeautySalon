@@ -4,11 +4,11 @@ namespace BeautySalon.Models
 {
     public class CosmeticServiceListViewModel
     {
-        public List<CosmeticServiceListItemViewModel> CosmeticService { get; set; }
+        public List<CosmeticServiceListItemViewModel> CosmeticServices { get; set; }
 
         public CosmeticServiceListViewModel()
         {
-            CosmeticService = new List<CosmeticServiceListItemViewModel>();
+            CosmeticServices = new List<CosmeticServiceListItemViewModel>();
         }
     }
 
