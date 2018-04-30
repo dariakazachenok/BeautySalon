@@ -2,6 +2,7 @@
 using EntityFramework;
 using Identity.Data;
 using Identity.Models;
+using Identity.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Identity;
@@ -26,10 +27,11 @@ namespace BeautySalon
         public void ConfigureServices(IServiceCollection services)
         {
             // получаем строку подключения из файла конфигурации
-            string connection = Configuration.GetConnectionString("DefaultConnection");
+            services.AddDbContext<ApplicationDbContext>(options =>
+                options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+
             // добавляем контекст DatabaseContext в качестве сервиса в приложение
-            services.AddDbContext<DatabaseContext>(options =>
-                options.UseSqlServer(connection));
+            services.AddDbContext<DatabaseContext>();
 
             services.AddTransient<ServiceService, ServiceService>();
 
@@ -38,6 +40,9 @@ namespace BeautySalon
             services.AddIdentity<ApplicationUser, IdentityRole>()
                 .AddEntityFrameworkStores<ApplicationDbContext>()
                 .AddDefaultTokenProviders();
+
+            // Add application services.
+            services.AddTransient<IEmailSender, EmailSender>();
 
             services.Configure<IdentityOptions>(options =>
             {
