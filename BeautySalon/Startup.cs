@@ -1,7 +1,5 @@
 ﻿
-using EntityFramework;
-using Identity.Data;
-using Identity.Models;
+using Identity;
 using Identity.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -31,7 +29,6 @@ namespace BeautySalon
                 options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
 
             // добавляем контекст DatabaseContext в качестве сервиса в приложение
-            services.AddDbContext<DatabaseContext>();
 
             services.AddTransient<ServiceService, ServiceService>();
 

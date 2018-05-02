@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using EntityFramework;
+using Identity;
 using Microsoft.EntityFrameworkCore;
 using Models;
 
@@ -8,9 +8,9 @@ namespace Services
 {
     public class ServiceService
     {
-        private readonly DatabaseContext databaseContex;
+        private readonly ApplicationDbContext databaseContex;
 
-        public ServiceService(DatabaseContext databaseContex)
+        public ServiceService(ApplicationDbContext databaseContex)
         {
             this.databaseContex = databaseContex;
         }

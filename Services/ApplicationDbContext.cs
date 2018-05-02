@@ -1,11 +1,16 @@
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
-using Identity.Models;
+using Models;
+using Services;
 
-namespace Identity.Data
+namespace Identity
 {
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
+        public DbSet<HairdresserService> HairdresserServices { get; set; }
+        public DbSet<CosmeticService> CosmeticServices { get; set; }
+        public DbSet<Manicure> Manicures { get; set; }
+
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
             : base(options)
         {
@@ -18,6 +23,8 @@ namespace Identity.Data
             // For example, you can rename the ASP.NET Identity table names and more.
             // Add your customizations after calling base.OnModelCreating(builder);
         }
+
+       
     }
 }
 

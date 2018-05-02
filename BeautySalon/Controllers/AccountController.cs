@@ -6,10 +6,10 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using Identity.Models;
 using Identity.Models.AccountViewModels;
 using Identity.Services;
 using BeautySalon.Controllers;
+using Services;
 
 namespace Identity.Controllers
 {
