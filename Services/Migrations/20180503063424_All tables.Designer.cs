@@ -11,7 +11,7 @@ using System;
 namespace Services.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20180502141725_All tables")]
+    [Migration("20180503063424_All tables")]
     partial class Alltables
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
