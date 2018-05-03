@@ -10,7 +10,7 @@ using System;
 
 namespace Services.Migrations
 {
-    [DbContext(typeof(ApplicationDbContext))]
+    [DbContext(typeof(DatabaseContext))]
     [Migration("20180503063424_All tables")]
     partial class Alltables
     {

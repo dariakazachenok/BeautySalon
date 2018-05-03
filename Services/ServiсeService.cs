@@ -8,9 +8,9 @@ namespace Services
 {
     public class ServiceService
     {
-        private readonly ApplicationDbContext databaseContex;
+        private readonly DatabaseContext databaseContex;
 
-        public ServiceService(ApplicationDbContext databaseContex)
+        public ServiceService(DatabaseContext databaseContex)
         {
             this.databaseContex = databaseContex;
         }
