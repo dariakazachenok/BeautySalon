@@ -1,4 +1,5 @@
 ﻿using BeautySalon.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Models;
 using Services;
@@ -33,6 +34,7 @@ namespace BeautySalon.Controllers
             return View(manicureListViewModel);
         }
 
+        [Authorize(Roles = "Admin")]
         // GET:  Manicure
         public ActionResult Create(int id = 0)
         {
@@ -41,8 +43,8 @@ namespace BeautySalon.Controllers
             return View("Create", manicuremodel);
         }
 
+        [Authorize(Roles = "Admin")]
         [HttpPost]
-
         public ActionResult Create(ManicureModel manicureModel)
         {
             if (!ModelState.IsValid)
@@ -66,6 +68,7 @@ namespace BeautySalon.Controllers
             return RedirectToAction("Index");
         }
 
+        [Authorize(Roles = "Admin")]
         // GET: Manicure
         public ActionResult Update(int id)
         {
@@ -79,8 +82,8 @@ namespace BeautySalon.Controllers
             return View("Update", manicureModel);
         }
 
+        [Authorize(Roles = "Admin")]
         [HttpPost]
-
         public ActionResult Update(ManicureModel manicureModel)
         {
             if (!ModelState.IsValid)
@@ -101,6 +104,7 @@ namespace BeautySalon.Controllers
             return RedirectToAction("Index");
         }
 
+        [Authorize(Roles = "Admin")]
         public ActionResult Delete(int id)
         {
             serviceService.RemoveManicure(id);
