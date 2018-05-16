@@ -1,4 +1,17 @@
-﻿@model CosmeticServiceListViewModel
+﻿@using Microsoft.AspNetCore.Identity;
+@using Microsoft.AspNetCore.Http;
+@using Services
+
+@inject UserManager<ApplicationUser> userManager
+@inject IHttpContextAccessor httpContextAccessor
+
+@{
+    var httpContext = httpContextAccessor.HttpContext;
+    var user = await userManager.GetUserAsync(httpContext.User);
+    bool b = await userManager.IsInRoleAsync(user, "id=8ae36dde-7b84-4fb8-8632-bd6d392b4eb2");
+}
+
+@model CosmeticServiceListViewModel
 
 @{
     ViewData["Title"] = "Index";
@@ -6,48 +19,81 @@
 
 <h2>Cosmetic Services</h2>
 
-<div class="row margin-top-10">
-    <table class="table table-striped">
-        <tr>
-            <th>№</th>
-            <th>Name service</th>
-            <th>Price,$</th>
-            <th></th>
-            <th></th>
-        </tr>
+@if (b)
+ {
+    <div class="row margin-top-10">
 
-        @for (int i = 0; i < Model.CosmeticServices.Count; i++)
-         {
-            var item = Model.CosmeticServices[i];
-            var displayIndex = i + 1;
+        <table class="table table-striped">
             <tr>
-                <td>
-                    @displayIndex
-                </td>
-
-                <td>
-                    @item.Nameservice
-                </td>
-
-                <td>
-                    @item.Price
-                </td>
-
-                <td>
-                    <a href="@Url.Action("Update", "CosmeticServices", new{@item.Id})">Edit</a>
-                </td>
-
-                <td>
-                    <a href="@Url.Action("Delete", "CosmeticServices", new{@item.Id})">Delete</a>
-                </td>
+                <th>№</th>
+                <th>Name service</th>
+                <th>Price,$</th>
+                <th></th>
+                <th></th>
             </tr>
-         }
-    </table>
-</div>
 
+            @for (int i = 0; i < Model.CosmeticServices.Count; i++)
+            {
+                var item = Model.CosmeticServices[i];
+                var displayIndex = i + 1;
+                <tr>
+                    <td>
+                        @displayIndex
+                    </td>
+
+                    <td>
+                        @item.Nameservice
+                    </td>
+
+                    <td>
+                        @item.Price
+                    </td>
+
+                    <td>
+                        <a href="@Url.Action("Update", "CosmeticServices", new { @item.Id })">Edit</a>
+                    </td>
+
+                    <td>
+                        <a href="@Url.Action("Delete", "CosmeticServices", new { @item.Id })">Delete</a>
+                    </td>
+                </tr>
+            }
+        </table>
+    </div>
+    @Html.ActionLink("Add service", "Create", "CosmeticServices") 
+ }
+else
+{
+    <div class="row margin-top-10">
+
+        <table class="table table-striped">
+            <tr>
+                <th>№</th>
+                <th>Name service</th>
+                <th>Price,$</th>
+            </tr>
+
+            @for (int i = 0; i < Model.CosmeticServices.Count; i++)
+            {
+                var item = Model.CosmeticServices[i];
+                var displayIndex = i + 1;
+                <tr>
+                    <td>
+                        @displayIndex
+                    </td>
+
+                    <td>
+                        @item.Nameservice
+                    </td>
+
+                    <td>
+                        @item.Price
+                    </td>
+                </tr>
+            }
+        </table>
+    </div>
+}
 <div>
-    @Html.ActionLink("Add service", "Create", "CosmeticServices") </br>
-   
     @Html.ActionLink("Go back to main page", "Index", "Home")
 </div>
-
