@@ -18,9 +18,9 @@
 {
     var httpContext = httpContextAccessor.HttpContext;
     var user = await userManager.GetUserAsync(httpContext.User);
-    bool b = await userManager.IsInRoleAsync(user, "Admin");
+    bool role = await userManager.IsInRoleAsync(user, "Admin");
 
-    @if (b)
+    @if (role)
      {
         <div class="row margin-top-10">
 
@@ -77,7 +77,7 @@
                 </tr>
 
                 @for (int i = 0; i < Model.CosmeticServices.Count; i++)
-                {
+                 {
                     var item = Model.CosmeticServices[i];
                     var displayIndex = i + 1;
                     <tr>
@@ -93,7 +93,7 @@
                             @item.Price
                         </td>
                     </tr>
-                }
+                 }
             </table>
         </div>
     }
