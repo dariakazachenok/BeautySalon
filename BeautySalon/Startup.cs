@@ -42,10 +42,6 @@ namespace BeautySalon
             // Add application services.
             services.AddTransient<IEmailSender, EmailSender>();
 
-            services.AddTransient<IHttpContextAccessor, HttpContextAccessor>();
-
-            services.AddTransient<UserManager<ApplicationUser>>();
-
             services.Configure<IdentityOptions>(options =>
             {
                 // Password settings

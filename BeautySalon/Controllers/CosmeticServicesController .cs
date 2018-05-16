@@ -16,6 +16,7 @@ namespace BeautySalon.Controllers
             this.serviceService = serviceService;
         }
 
+        [AllowAnonymous]
         public IActionResult Index()
         {
             var services = serviceService.GetAllCosmeticService();
