@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace Services.Migrations
 {
-    public partial class Nameservicechanged : Migration
+    public partial class MigrateDB : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
