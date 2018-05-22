@@ -1,0 +1,102 @@
+Request starting HTTP/1.1 GET http://localhost:55299/  
+Processing request /
+Request finished in 227.034ms 200 
+Request starting HTTP/1.1 GET http://localhost:55299/favicon.ico  
+Processing request /favicon.ico
+Request finished in 41.116ms 200 
+Request starting HTTP/1.1 GET http://localhost:55298/  
+Processing request /
+Request finished in 292.271ms 200 
+Request starting HTTP/1.1 GET http://localhost:55298/favicon.ico  
+Processing request /favicon.ico
+Request finished in 33.9128ms 200 
+Request starting HTTP/1.1 GET http://localhost:55298/  
+Processing request /
+Request finished in 267.2505ms 200 
+Request starting HTTP/1.1 GET http://localhost:55298/favicon.ico  
+Processing request /favicon.ico
+Request finished in 46.9866ms 200 
+Request starting HTTP/1.1 GET http://localhost:55298/  
+Executing action method BeautySalon.Controllers.HomeController.Index (BeautySalon) with arguments ((null)) - ModelState is Valid
+Executing ViewResult, running view at path /Views/Home/Index.cshtml.
+Executed action BeautySalon.Controllers.HomeController.Index (BeautySalon) in 5328.3041ms
+Request starting HTTP/1.1 GET http://localhost:55298/css/site.css  
+Request starting HTTP/1.1 GET http://localhost:55298/lib/bootstrap/dist/css/bootstrap.css  
+Request starting HTTP/1.1 GET http://localhost:55298/lib/jquery/dist/jquery.js  
+Request finished in 6122.7128ms 200 text/html; charset=utf-8
+The file /css/site.css was not modified
+The file /lib/jquery/dist/jquery.js was not modified
+The file /lib/bootstrap/dist/css/bootstrap.css was not modified
+Request finished in 177.7145ms 304 text/css
+Request starting HTTP/1.1 GET http://localhost:55298/js/site.js?v=ji3-IxbEzYWjzzLCGkF1KDjrT2jLbbrSYXw-AhMPNIA  
+Request finished in 177.7141ms 304 text/css
+Request finished in 146.9629ms 304 application/javascript
+The file /js/site.js was not modified
+Request starting HTTP/1.1 GET http://localhost:55298/lib/bootstrap/dist/js/bootstrap.js  
+Request finished in 114.1744ms 304 application/javascript
+The file /lib/bootstrap/dist/js/bootstrap.js was not modified
+Request finished in 144.8782ms 304 application/javascript
+Request starting HTTP/1.1 GET http://localhost:55298/favicon.ico  
+Sending file. Request path: '/favicon.ico'. Physical path: 'D:\dasha\BeautySalon\BeautySalon\wwwroot\favicon.ico'
+Request finished in 45.5217ms 200 image/x-icon
+Request starting HTTP/1.1 GET http://localhost:55298/favicon.ico  
+Sending file. Request path: '/favicon.ico'. Physical path: 'D:\dasha\BeautySalon\BeautySalon\wwwroot\favicon.ico'
+Request finished in 211.8494ms 200 image/x-icon
+Request starting HTTP/1.1 GET http://localhost:55298/  
+Executing action method BeautySalon.Controllers.HomeController.Index (BeautySalon) with arguments ((null)) - ModelState is Valid
+Executing ViewResult, running view at path /Views/Home/Index.cshtml.
+Executed action BeautySalon.Controllers.HomeController.Index (BeautySalon) in 5063.6318ms
+Request finished in 5788.2828ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 GET http://localhost:55298/CosmeticServices  
+Executing action method BeautySalon.Controllers.CosmeticServicesController.Index (BeautySalon) with arguments ((null)) - ModelState is Valid
+Request starting HTTP/1.1 GET http://localhost:55298/  
+Executing action method BeautySalon.Controllers.HomeController.Index (BeautySalon) with arguments ((null)) - ModelState is Valid
+Executing ViewResult, running view at path /Views/Home/Index.cshtml.
+Executed action BeautySalon.Controllers.HomeController.Index (BeautySalon) in 5215.8471ms
+Request finished in 5964.5977ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 GET http://localhost:55298/CosmeticServices  
+Executing action method BeautySalon.Controllers.CosmeticServicesController.Index (BeautySalon) with arguments ((null)) - ModelState is Valid
+Request starting HTTP/1.1 GET http://localhost:55298/  
+Executing action method BeautySalon.Controllers.HomeController.Index (BeautySalon) with arguments ((null)) - ModelState is Valid
+Executing ViewResult, running view at path /Views/Home/Index.cshtml.
+Executed action BeautySalon.Controllers.HomeController.Index (BeautySalon) in 5136.5732ms
+Request finished in 5866.0476ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 GET http://localhost:55298/CosmeticServices  
+Executing action method BeautySalon.Controllers.CosmeticServicesController.Index (BeautySalon) with arguments ((null)) - ModelState is Valid
+Request starting HTTP/1.1 GET http://localhost:55298/  
+Executing action method BeautySalon.Controllers.HomeController.Index (BeautySalon) with arguments ((null)) - ModelState is Valid
+Executing ViewResult, running view at path /Views/Home/Index.cshtml.
+Executed action BeautySalon.Controllers.HomeController.Index (BeautySalon) in 5185.3246ms
+Request finished in 5890.5675ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 GET http://localhost:55298/CosmeticServices  
+An unhandled exception has occurred while executing the request
+Request finished in 299.9205ms 500 text/html; charset=utf-8
+Request starting HTTP/1.1 GET http://localhost:55298/  
+Executing action method BeautySalon.Controllers.HomeController.Index (BeautySalon) with arguments ((null)) - ModelState is Valid
+Executing ViewResult, running view at path /Views/Home/Index.cshtml.
+Executed action BeautySalon.Controllers.HomeController.Index (BeautySalon) in 5364.096ms
+Request finished in 6155.0218ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 GET http://localhost:55298/CosmeticServices  
+An unhandled exception has occurred while executing the request
+Request finished in 255.7601ms 500 text/html; charset=utf-8
+Request starting HTTP/1.1 GET http://localhost:55298/  
+Executing action method BeautySalon.Controllers.HomeController.Index (BeautySalon) with arguments ((null)) - ModelState is Valid
+Executing ViewResult, running view at path /Views/Home/Index.cshtml.
+Executed action BeautySalon.Controllers.HomeController.Index (BeautySalon) in 5187.3532ms
+Request finished in 5899.8344ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 GET http://localhost:55298/CosmeticServices  
+Executing action method BeautySalon.Controllers.CosmeticServicesController.Index (BeautySalon) with arguments ((null)) - ModelState is Valid
+CosmeticServicesController IActionResult Index: start
+Entity Framework Core 2.0.3-rtm-10026 initialized 'DatabaseContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+Executed DbCommand (26ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [c].[Id], [c].[Nameservice], [c].[Price]
+FROM [CosmeticServices] AS [c]
+CosmeticServicesController IActionResult Index: end
+Executing ViewResult, running view at path /Views/CosmeticServices/Index.cshtml.
+Executed action BeautySalon.Controllers.CosmeticServicesController.Index (BeautySalon) in 2229.9717ms
+Request finished in 2249.7197ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 GET http://localhost:55298/  
+Executing action method BeautySalon.Controllers.HomeController.Index (BeautySalon) with arguments ((null)) - ModelState is Valid
+Executing ViewResult, running view at path /Views/Home/Index.cshtml.
+Executed action BeautySalon.Controllers.HomeController.Index (BeautySalon) in 38.2656ms
+Request finished in 79.9573ms 200 text/html; charset=utf-8

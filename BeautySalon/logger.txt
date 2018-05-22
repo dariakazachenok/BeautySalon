@@ -1,0 +1,21 @@
+Request starting HTTP/1.1 GET http://localhost:55298/  
+Executing action method BeautySalon.Controllers.HomeController.Index (BeautySalon) with arguments ((null)) - ModelState is Valid
+Executing ViewResult, running view at path /Views/Home/Index.cshtml.
+Executed action BeautySalon.Controllers.HomeController.Index (BeautySalon) in 5305.0508ms
+Request finished in 6090.6437ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 GET http://localhost:55298/CosmeticServices  
+Executing action method BeautySalon.Controllers.CosmeticServicesController.Index (BeautySalon) with arguments ((null)) - ModelState is Valid
+CosmeticServicesController IActionResult Index: start
+Entity Framework Core 2.0.3-rtm-10026 initialized 'DatabaseContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+Executed DbCommand (17ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [c].[Id], [c].[Nameservice], [c].[Price]
+FROM [CosmeticServices] AS [c]
+CosmeticServicesController IActionResult Index: end
+Executing ViewResult, running view at path /Views/CosmeticServices/Index.cshtml.
+Executed action BeautySalon.Controllers.CosmeticServicesController.Index (BeautySalon) in 2173.7694ms
+Request finished in 2216.7589ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 GET http://localhost:55298/  
+Executing action method BeautySalon.Controllers.HomeController.Index (BeautySalon) with arguments ((null)) - ModelState is Valid
+Executing ViewResult, running view at path /Views/Home/Index.cshtml.
+Executed action BeautySalon.Controllers.HomeController.Index (BeautySalon) in 44.9682ms
+Request finished in 83.1905ms 200 text/html; charset=utf-8

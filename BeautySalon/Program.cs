@@ -1,7 +1,6 @@
-﻿
-using Microsoft.AspNetCore;
+﻿using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
-
+using Microsoft.Extensions.Logging;
 
 namespace BeautySalon
 {
@@ -15,6 +14,7 @@ namespace BeautySalon
         public static IWebHost BuildWebHost(string[] args) =>
             WebHost.CreateDefaultBuilder(args)
                 .UseStartup<Startup>()
-                .Build();
+                .ConfigureLogging(logging => logging.SetMinimumLevel(LogLevel.Trace))
+            .Build();
     }
 }
