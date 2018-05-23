@@ -19,3 +19,177 @@ Executing action method BeautySalon.Controllers.HomeController.Index (BeautySalo
 Executing ViewResult, running view at path /Views/Home/Index.cshtml.
 Executed action BeautySalon.Controllers.HomeController.Index (BeautySalon) in 44.9682ms
 Request finished in 83.1905ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 GET http://localhost:55298/  
+Executing action method BeautySalon.Controllers.HomeController.Index (BeautySalon) with arguments ((null)) - ModelState is Valid
+Executing ViewResult, running view at path /Views/Home/Index.cshtml.
+Executed action BeautySalon.Controllers.HomeController.Index (BeautySalon) in 5394.9274ms
+Request finished in 6113.5573ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 GET http://localhost:55298/CosmeticServices  
+Executing action method BeautySalon.Controllers.CosmeticServicesController.Index (BeautySalon) with arguments ((null)) - ModelState is Valid
+CosmeticServicesController IActionResult Index: start
+Entity Framework Core 2.0.3-rtm-10026 initialized 'DatabaseContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+Executed DbCommand (21ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [c].[Id], [c].[Nameservice], [c].[Price]
+FROM [CosmeticServices] AS [c]
+CosmeticServicesController IActionResult Index: end
+Executing ViewResult, running view at path /Views/CosmeticServices/Index.cshtml.
+Executed action BeautySalon.Controllers.CosmeticServicesController.Index (BeautySalon) in 2104.3164ms
+Request finished in 2161.4901ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 GET http://localhost:55298/  
+Executing action method BeautySalon.Controllers.HomeController.Index (BeautySalon) with arguments ((null)) - ModelState is Valid
+Executing ViewResult, running view at path /Views/Home/Index.cshtml.
+Executed action BeautySalon.Controllers.HomeController.Index (BeautySalon) in 15.8044ms
+Request finished in 91.3663ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 GET http://localhost:55298/Account/Login  
+Executing action method Identity.Controllers.AccountController.Login (BeautySalon) with arguments () - ModelState is Valid
+AuthenticationScheme: Identity.External signed out.
+Executing ViewResult, running view at path /Views/Account/Login.cshtml.
+Executed action Identity.Controllers.AccountController.Login (BeautySalon) in 1396.8248ms
+Request finished in 1492.3006ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 GET http://localhost:55298/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js  
+Request starting HTTP/1.1 GET http://localhost:55298/lib/jquery-validation/dist/jquery.validate.js  
+The file /lib/jquery-validation/dist/jquery.validate.js was not modified
+The file /lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js was not modified
+Request finished in 121.6252ms 304 application/javascript
+Request finished in 118.3087ms 304 application/javascript
+Request starting HTTP/1.1 POST http://localhost:55298/Account/Login application/x-www-form-urlencoded 262
+Executing action method Identity.Controllers.AccountController.Login (BeautySalon) with arguments (Identity.Models.AccountViewModels.LoginViewModel, ) - ModelState is Valid
+Entity Framework Core 2.0.3-rtm-10026 initialized 'DatabaseContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+Executed DbCommand (59ms) [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[AccessFailedCount], [u].[ConcurrencyStamp], [u].[Email], [u].[EmailConfirmed], [u].[LockoutEnabled], [u].[LockoutEnd], [u].[NormalizedEmail], [u].[NormalizedUserName], [u].[PasswordHash], [u].[PhoneNumber], [u].[PhoneNumberConfirmed], [u].[SecurityStamp], [u].[TwoFactorEnabled], [u].[UserName]
+FROM [AspNetUsers] AS [u]
+WHERE [u].[NormalizedUserName] = @__normalizedUserName_0
+Executed DbCommand (2ms) [Parameters=[@__user_Id_0='?' (Size = 450)], CommandType='Text', CommandTimeout='30']
+SELECT [uc].[Id], [uc].[ClaimType], [uc].[ClaimValue], [uc].[UserId]
+FROM [AspNetUserClaims] AS [uc]
+WHERE [uc].[UserId] = @__user_Id_0
+Executed DbCommand (4ms) [Parameters=[@__userId_0='?' (Size = 450)], CommandType='Text', CommandTimeout='30']
+SELECT [role].[Name]
+FROM [AspNetUserRoles] AS [userRole]
+INNER JOIN [AspNetRoles] AS [role] ON [userRole].[RoleId] = [role].[Id]
+WHERE [userRole].[UserId] = @__userId_0
+Executed DbCommand (2ms) [Parameters=[@__normalizedName_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [r].[Id], [r].[ConcurrencyStamp], [r].[Name], [r].[NormalizedName]
+FROM [AspNetRoles] AS [r]
+WHERE [r].[NormalizedName] = @__normalizedName_0
+Executed DbCommand (2ms) [Parameters=[@__role_Id_0='?' (Size = 450)], CommandType='Text', CommandTimeout='30']
+SELECT [rc].[ClaimType], [rc].[ClaimValue]
+FROM [AspNetRoleClaims] AS [rc]
+WHERE [rc].[RoleId] = @__role_Id_0
+AuthenticationScheme: Identity.Application signed in.
+User logged in.
+Executing RedirectResult, redirecting to /.
+Executed action Identity.Controllers.AccountController.Login (BeautySalon) in 1174.4481ms
+Request finished in 1227.9917ms 302 
+Request starting HTTP/1.1 GET http://localhost:55298/  
+AuthenticationScheme: Identity.Application was successfully authenticated.
+Executing action method BeautySalon.Controllers.HomeController.Index (BeautySalon) with arguments ((null)) - ModelState is Valid
+Executing ViewResult, running view at path /Views/Home/Index.cshtml.
+Executed action BeautySalon.Controllers.HomeController.Index (BeautySalon) in 65.1136ms
+Request finished in 147.5034ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 GET http://localhost:55298/CosmeticServices  
+AuthenticationScheme: Identity.Application was successfully authenticated.
+Executing action method BeautySalon.Controllers.CosmeticServicesController.Index (BeautySalon) with arguments ((null)) - ModelState is Valid
+CosmeticServicesController IActionResult Index: start
+Entity Framework Core 2.0.3-rtm-10026 initialized 'DatabaseContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [c].[Id], [c].[Nameservice], [c].[Price]
+FROM [CosmeticServices] AS [c]
+CosmeticServicesController IActionResult Index: end
+Executing ViewResult, running view at path /Views/CosmeticServices/Index.cshtml.
+Executed DbCommand (1ms) [Parameters=[@__get_Item_0='?' (Size = 450)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [e].[Id], [e].[AccessFailedCount], [e].[ConcurrencyStamp], [e].[Email], [e].[EmailConfirmed], [e].[LockoutEnabled], [e].[LockoutEnd], [e].[NormalizedEmail], [e].[NormalizedUserName], [e].[PasswordHash], [e].[PhoneNumber], [e].[PhoneNumberConfirmed], [e].[SecurityStamp], [e].[TwoFactorEnabled], [e].[UserName]
+FROM [AspNetUsers] AS [e]
+WHERE [e].[Id] = @__get_Item_0
+Executed DbCommand (2ms) [Parameters=[@__normalizedRoleName_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(2) [r].[Id], [r].[ConcurrencyStamp], [r].[Name], [r].[NormalizedName]
+FROM [AspNetRoles] AS [r]
+WHERE [r].[NormalizedName] = @__normalizedRoleName_0
+Executed DbCommand (1ms) [Parameters=[@__get_Item_0='?' (Size = 450), @__get_Item_1='?' (Size = 450)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [e].[UserId], [e].[RoleId]
+FROM [AspNetUserRoles] AS [e]
+WHERE ([e].[UserId] = @__get_Item_0) AND ([e].[RoleId] = @__get_Item_1)
+Executed action BeautySalon.Controllers.CosmeticServicesController.Index (BeautySalon) in 203.4575ms
+Request finished in 330.0397ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 GET http://localhost:55298/  
+AuthenticationScheme: Identity.Application was successfully authenticated.
+Executing action method BeautySalon.Controllers.HomeController.Index (BeautySalon) with arguments ((null)) - ModelState is Valid
+Executing ViewResult, running view at path /Views/Home/Index.cshtml.
+Executed action BeautySalon.Controllers.HomeController.Index (BeautySalon) in 40.0869ms
+Request finished in 91.8664ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 GET http://localhost:55298/CosmeticServices  
+AuthenticationScheme: Identity.Application was successfully authenticated.
+Executing action method BeautySalon.Controllers.CosmeticServicesController.Index (BeautySalon) with arguments ((null)) - ModelState is Valid
+CosmeticServicesController IActionResult Index: start
+Entity Framework Core 2.0.3-rtm-10026 initialized 'DatabaseContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [c].[Id], [c].[Nameservice], [c].[Price]
+FROM [CosmeticServices] AS [c]
+CosmeticServicesController IActionResult Index: end
+Executing ViewResult, running view at path /Views/CosmeticServices/Index.cshtml.
+Executed DbCommand (0ms) [Parameters=[@__get_Item_0='?' (Size = 450)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [e].[Id], [e].[AccessFailedCount], [e].[ConcurrencyStamp], [e].[Email], [e].[EmailConfirmed], [e].[LockoutEnabled], [e].[LockoutEnd], [e].[NormalizedEmail], [e].[NormalizedUserName], [e].[PasswordHash], [e].[PhoneNumber], [e].[PhoneNumberConfirmed], [e].[SecurityStamp], [e].[TwoFactorEnabled], [e].[UserName]
+FROM [AspNetUsers] AS [e]
+WHERE [e].[Id] = @__get_Item_0
+Executed DbCommand (0ms) [Parameters=[@__normalizedRoleName_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(2) [r].[Id], [r].[ConcurrencyStamp], [r].[Name], [r].[NormalizedName]
+FROM [AspNetRoles] AS [r]
+WHERE [r].[NormalizedName] = @__normalizedRoleName_0
+Executed DbCommand (0ms) [Parameters=[@__get_Item_0='?' (Size = 450), @__get_Item_1='?' (Size = 450)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [e].[UserId], [e].[RoleId]
+FROM [AspNetUserRoles] AS [e]
+WHERE ([e].[UserId] = @__get_Item_0) AND ([e].[RoleId] = @__get_Item_1)
+Executed action BeautySalon.Controllers.CosmeticServicesController.Index (BeautySalon) in 205.5845ms
+Request finished in 230.4608ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 GET http://localhost:55298/CosmeticServices/Create  
+AuthenticationScheme: Identity.Application was successfully authenticated.
+Authorization was successful for user: kazachenokd@mail.ru.
+Executing action method BeautySalon.Controllers.CosmeticServicesController.Create (BeautySalon) with arguments (0) - ModelState is Valid
+Executing ViewResult, running view at path /Views/CosmeticServices/Create.cshtml.
+Executed action BeautySalon.Controllers.CosmeticServicesController.Create (BeautySalon) in 627.0593ms
+Request finished in 668.542ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 POST http://localhost:55298/CosmeticServices/Create multipart/form-data; boundary=----WebKitFormBoundaryzVou10wgjMg8KwRR 689
+AuthenticationScheme: Identity.Application was successfully authenticated.
+Authorization was successful for user: kazachenokd@mail.ru.
+Executing action method BeautySalon.Controllers.CosmeticServicesController.Create (BeautySalon) with arguments (Models.CosmeticServiceModel) - ModelState is Valid
+Entity Framework Core 2.0.3-rtm-10026 initialized 'DatabaseContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+Executed DbCommand (6ms) [Parameters=[@p0='?' (Size = 4000), @p1='?'], CommandType='Text', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [CosmeticServices] ([Nameservice], [Price])
+VALUES (@p0, @p1);
+SELECT [Id]
+FROM [CosmeticServices]
+WHERE @@ROWCOUNT = 1 AND [Id] = scope_identity();
+Executing RedirectResult, redirecting to /CosmeticServices.
+Executed action BeautySalon.Controllers.CosmeticServicesController.Create (BeautySalon) in 408.8402ms
+Request finished in 428.8928ms 302 
+Request starting HTTP/1.1 GET http://localhost:55298/CosmeticServices  
+AuthenticationScheme: Identity.Application was successfully authenticated.
+Executing action method BeautySalon.Controllers.CosmeticServicesController.Index (BeautySalon) with arguments ((null)) - ModelState is Valid
+CosmeticServicesController IActionResult Index: start
+Entity Framework Core 2.0.3-rtm-10026 initialized 'DatabaseContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [c].[Id], [c].[Nameservice], [c].[Price]
+FROM [CosmeticServices] AS [c]
+CosmeticServicesController IActionResult Index: end
+Executing ViewResult, running view at path /Views/CosmeticServices/Index.cshtml.
+Executed DbCommand (0ms) [Parameters=[@__get_Item_0='?' (Size = 450)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [e].[Id], [e].[AccessFailedCount], [e].[ConcurrencyStamp], [e].[Email], [e].[EmailConfirmed], [e].[LockoutEnabled], [e].[LockoutEnd], [e].[NormalizedEmail], [e].[NormalizedUserName], [e].[PasswordHash], [e].[PhoneNumber], [e].[PhoneNumberConfirmed], [e].[SecurityStamp], [e].[TwoFactorEnabled], [e].[UserName]
+FROM [AspNetUsers] AS [e]
+WHERE [e].[Id] = @__get_Item_0
+Executed DbCommand (0ms) [Parameters=[@__normalizedRoleName_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(2) [r].[Id], [r].[ConcurrencyStamp], [r].[Name], [r].[NormalizedName]
+FROM [AspNetRoles] AS [r]
+WHERE [r].[NormalizedName] = @__normalizedRoleName_0
+Executed DbCommand (0ms) [Parameters=[@__get_Item_0='?' (Size = 450), @__get_Item_1='?' (Size = 450)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [e].[UserId], [e].[RoleId]
+FROM [AspNetUserRoles] AS [e]
+WHERE ([e].[UserId] = @__get_Item_0) AND ([e].[RoleId] = @__get_Item_1)
+Executed action BeautySalon.Controllers.CosmeticServicesController.Index (BeautySalon) in 228.7569ms
+Request finished in 316.5823ms 200 text/html; charset=utf-8
+Request starting HTTP/1.1 GET http://localhost:55298/  
+AuthenticationScheme: Identity.Application was successfully authenticated.
+Executing action method BeautySalon.Controllers.HomeController.Index (BeautySalon) with arguments ((null)) - ModelState is Valid
+Executing ViewResult, running view at path /Views/Home/Index.cshtml.
+Executed action BeautySalon.Controllers.HomeController.Index (BeautySalon) in 23.1462ms
+Request finished in 47.3394ms 200 text/html; charset=utf-8

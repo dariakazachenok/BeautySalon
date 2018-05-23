@@ -93,9 +93,6 @@ namespace BeautySalon
 
             loggerFactory.AddFile(Path.Combine(Directory.GetCurrentDirectory(), "logger.txt"));
 
-            // create a logger object
-            var logger = loggerFactory.CreateLogger("FileLogger");
-
             app.UseStaticFiles();
 
             app.UseAuthentication();

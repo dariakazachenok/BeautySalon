@@ -15,6 +15,6 @@ namespace BeautySalon
             WebHost.CreateDefaultBuilder(args)
                 .UseStartup<Startup>()
                 .ConfigureLogging(logging => logging.SetMinimumLevel(LogLevel.Trace))
-            .Build();
+                .Build();
     }
 }
