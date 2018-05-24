@@ -85,6 +85,7 @@ namespace BeautySalon
             {
                 app.UseBrowserLink();
                 app.UseDeveloperExceptionPage();
+                app.UseDatabaseErrorPage();
             }
             else
             {
@@ -92,6 +93,15 @@ namespace BeautySalon
             }
 
             loggerFactory.AddFile(Path.Combine(Directory.GetCurrentDirectory(), "logger.txt"));
+
+            app.Use(async (context, next) =>
+            {
+                // Do work that doesn't write to the Response.
+                await next.Invoke();
+                // Do logging or other work that doesn't write to the Response.
+            });
+
+            app.UseStactive();
 
             app.UseStaticFiles();
 
