@@ -5,12 +5,12 @@ using System.Threading.Tasks;
 
 namespace BeautySalon
 {
-    public class StactiveMiddleware
+    public class RequestLoggingMiddleware
     {
         private readonly RequestDelegate _next;
         private readonly ILogger _logger;
 
-        public StactiveMiddleware(RequestDelegate next, ILogger<StactiveMiddleware> logger)
+        public RequestLoggingMiddleware(RequestDelegate next, ILogger<RequestLoggingMiddleware> logger)
         {
             _next = next;
             _logger = logger;
