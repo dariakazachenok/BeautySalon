@@ -20,11 +20,6 @@ namespace Services
             return databaseContex.HairdresserServices.ToList();
         }
 
-        public List<CosmeticService> GetAllCosmeticService()
-        {
-            return databaseContex.CosmeticServices.ToList();
-        }
-
         public List<Manicure> GetAllManicure()
         {
             return databaseContex.Manicures.ToList();
@@ -56,33 +51,6 @@ namespace Services
             var hairdresserService = databaseContex.HairdresserServices.FirstOrDefault(x => x.Id == id);
             databaseContex.HairdresserServices.Remove(hairdresserService);
             databaseContex.SaveChanges();
-        }
-        public CosmeticService GetByIdCosmeticService(int id)
-        {
-            return databaseContex.CosmeticServices.FirstOrDefault(x => x.Id == id);
-        }
-
-        public void Create(CosmeticService cosmeticService)
-        {
-              databaseContex.CosmeticServices.Add(cosmeticService);
-              databaseContex.SaveChanges();
-        }
-
-        public void Edit(CosmeticService cosmeticService)
-        {
-            //1
-            databaseContex.Entry(cosmeticService).State = EntityState.Modified;
-
-            //2
-            // databaseContex.Update(cosmeticService);
-            databaseContex.SaveChanges();
-        }
-
-        public void RemoveCosmeticService(int id)
-        {
-             var cosmeticService = databaseContex.CosmeticServices.FirstOrDefault(x => x.Id == id);
-             databaseContex.CosmeticServices.Remove(cosmeticService);
-             databaseContex.SaveChanges();
         }
 
         public Manicure GetByIdManicure(int id)

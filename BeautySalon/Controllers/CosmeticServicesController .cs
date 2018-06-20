@@ -10,12 +10,12 @@ namespace BeautySalon.Controllers
 {
     public class CosmeticServicesController : Controller
     {
-        private readonly ServiceService serviceService;
+        private readonly CosmeticServiceService cosmeticServiceService;
         readonly ILogger logger;
 
-        public CosmeticServicesController(ServiceService serviceService, ILogger<CosmeticServicesController> logger)
+        public CosmeticServicesController(CosmeticServiceService cosmeticServiceService, ILogger<CosmeticServicesController> logger)
         {
-            this.serviceService = serviceService;
+            this.cosmeticServiceService = cosmeticServiceService;
             this.logger = logger;
         }
 
@@ -23,7 +23,7 @@ namespace BeautySalon.Controllers
         public IActionResult Index()
         {
             logger.LogInformation("CosmeticServicesController IActionResult Index: start");
-            var services = serviceService.GetAllCosmeticService();
+            var services = cosmeticServiceService.GetAllCosmeticService();
             var cosmeticServiceListViewModel = new CosmeticServiceListViewModel();
 
             services.ForEach(service =>
@@ -38,7 +38,7 @@ namespace BeautySalon.Controllers
 
             logger.LogInformation("CosmeticServicesController IActionResult Index: end");
             return View(cosmeticServiceListViewModel);
-            
+
         }
 
         [Authorize(Roles = "Admin")]
@@ -60,7 +60,6 @@ namespace BeautySalon.Controllers
             };
 
             CosmeticService cosmeticService = new CosmeticService();
-            var cosmeticServiceViewModel = new CosmeticServiceListViewModel();
 
             if (cosmeticServicemodel.Id != null)
             {
@@ -70,7 +69,7 @@ namespace BeautySalon.Controllers
             cosmeticService.Id = cosmeticServicemodel.Id.HasValue ? cosmeticServicemodel.Id.Value : 0;
             cosmeticService.Nameservice = cosmeticServicemodel.Nameservice;
             cosmeticService.Price = cosmeticServicemodel.Price;
-            serviceService.Create(cosmeticService);
+            cosmeticServiceService.Create(cosmeticService);
 
             return RedirectToAction("Index");
         }
@@ -81,7 +80,7 @@ namespace BeautySalon.Controllers
         {
             var cosmeticServicemodel = new CosmeticServiceModel();
 
-            var cosmeticService = serviceService.GetByIdCosmeticService(id);
+            var cosmeticService = cosmeticServiceService.GetByIdCosmeticService(id);
             cosmeticServicemodel.Id = cosmeticService.Id;
             cosmeticServicemodel.Nameservice = cosmeticService.Nameservice;
             cosmeticServicemodel.Price = cosmeticService.Price;
@@ -104,7 +103,7 @@ namespace BeautySalon.Controllers
             cosmeticService.Id = cosmeticServicemodel.Id.HasValue ? cosmeticServicemodel.Id.Value : 0;
             cosmeticService.Nameservice = cosmeticServicemodel.Nameservice;
             cosmeticService.Price = cosmeticServicemodel.Price;
-            serviceService.Edit(cosmeticService);
+            cosmeticServiceService.Edit(cosmeticService);
 
             return RedirectToAction("Index");
         }
@@ -112,7 +111,7 @@ namespace BeautySalon.Controllers
         [Authorize(Roles = "Admin")]
         public ActionResult Delete(int id)
         {
-            serviceService.RemoveCosmeticService(id);
+            cosmeticServiceService.RemoveCosmeticService(id);
 
             return RedirectToAction("Index");
         }

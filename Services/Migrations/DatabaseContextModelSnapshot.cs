@@ -128,6 +128,26 @@ namespace Services.Migrations
                     b.ToTable("AspNetUserTokens");
                 });
 
+            modelBuilder.Entity("Models.BookingCosmeticService", b =>
+                {
+                    b.Property<int?>("Id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("FirstName");
+
+                    b.Property<string>("LastName");
+
+                    b.Property<string>("MasterName");
+
+                    b.Property<int?>("Phone");
+
+                    b.Property<DateTime>("VisitData");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("BookingCosmeticServices");
+                });
+
             modelBuilder.Entity("Models.CosmeticService", b =>
                 {
                     b.Property<int>("Id")

@@ -48,6 +48,23 @@ namespace Services.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "BookingCosmeticServices",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                    FirstName = table.Column<string>(nullable: true),
+                    LastName = table.Column<string>(nullable: true),
+                    MasterName = table.Column<string>(nullable: true),
+                    Phone = table.Column<int>(nullable: true),
+                    VisitData = table.Column<DateTime>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_BookingCosmeticServices", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "CosmeticServices",
                 columns: table => new
                 {
@@ -251,6 +268,9 @@ namespace Services.Migrations
 
             migrationBuilder.DropTable(
                 name: "AspNetUserTokens");
+
+            migrationBuilder.DropTable(
+                name: "BookingCosmeticServices");
 
             migrationBuilder.DropTable(
                 name: "CosmeticServices");

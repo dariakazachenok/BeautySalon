@@ -11,7 +11,7 @@ using System;
 namespace Services.Migrations
 {
     [DbContext(typeof(DatabaseContext))]
-    [Migration("20180518120103_All tables")]
+    [Migration("20180619135535_All tables")]
     partial class Alltables
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -127,6 +127,26 @@ namespace Services.Migrations
                     b.HasKey("UserId", "LoginProvider", "Name");
 
                     b.ToTable("AspNetUserTokens");
+                });
+
+            modelBuilder.Entity("Models.BookingCosmeticService", b =>
+                {
+                    b.Property<int?>("Id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("FirstName");
+
+                    b.Property<string>("LastName");
+
+                    b.Property<string>("MasterName");
+
+                    b.Property<int?>("Phone");
+
+                    b.Property<DateTime>("VisitData");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("BookingCosmeticServices");
                 });
 
             modelBuilder.Entity("Models.CosmeticService", b =>

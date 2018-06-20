@@ -1,0 +1,14 @@
+﻿@model Models.BookingCosmeticServiceModel
+
+@{
+    ViewData["Title"] = "Update";
+}
+
+<h2>Edit booking CosmeticSerservice</h2>
+
+<form action="@Url.Action("Update", "BookingCosmeticServices")" enctype="multipart/form-data" method="POST" class="form-horizontal">
+
+    @Html.Partial("BookingDetails")
+
+</form>
+

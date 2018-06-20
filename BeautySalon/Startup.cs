@@ -3,7 +3,6 @@ using Identity;
 using Identity.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -34,6 +33,8 @@ namespace BeautySalon
             // добавляем контекст DatabaseContext в качестве сервиса в приложение
 
             services.AddTransient<ServiceService, ServiceService>();
+
+            services.AddTransient<CosmeticServiceService, CosmeticServiceService>();
 
             services.AddMvc();
 
