@@ -1,10 +1,11 @@
 ﻿using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 using System;
+using System.Collections.Generic;
 
 namespace Services.Migrations
 {
-    public partial class Alltables : Migration
+    public partial class AllTables : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -55,8 +56,9 @@ namespace Services.Migrations
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
                     FirstName = table.Column<string>(nullable: true),
                     LastName = table.Column<string>(nullable: true),
-                    MasterName = table.Column<string>(nullable: true),
+                    MasterName = table.Column<int>(nullable: false),
                     Phone = table.Column<int>(nullable: true),
+                    ServiceId = table.Column<int>(nullable: true),
                     VisitData = table.Column<DateTime>(nullable: false)
                 },
                 constraints: table =>

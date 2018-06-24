@@ -21,7 +21,7 @@
     bool role = await userManager.IsInRoleAsync(user, "Admin");
 
     @if (role)
-     {
+    {
         <div class="row margin-top-10">
 
             <table class="table table-striped">
@@ -31,10 +31,11 @@
                     <th>Price,$</th>
                     <th></th>
                     <th></th>
+                    <th></th>
                 </tr>
 
                 @for (int i = 0; i < Model.CosmeticServices.Count; i++)
-                 {
+                {
                     var item = Model.CosmeticServices[i];
                     var displayIndex = i + 1;
                     <tr>
@@ -57,13 +58,19 @@
                         <td>
                             <a href="@Url.Action("Delete", "CosmeticServices", new { @item.Id })">Delete</a>
                         </td>
+
+                        <td>
+                            <a href="@Url.Action("Create", "BookingCosmeticServices", new { serviceId = @item.Id })">Booking</a>
+                        </td>
                     </tr>
-                 }
+                }
             </table>
         </div>
 
         @Html.ActionLink("Add service", "Create", "CosmeticServices")
-     }
+        <br/>
+        @Html.ActionLink("List of booking", "Index", "BookingCosmeticServices")
+    }
 
     else
     {
@@ -74,10 +81,11 @@
                     <th>№</th>
                     <th>Name service</th>
                     <th>Price,$</th>
+                    <th></th>
                 </tr>
 
                 @for (int i = 0; i < Model.CosmeticServices.Count; i++)
-                 {
+                {
                     var item = Model.CosmeticServices[i];
                     var displayIndex = i + 1;
                     <tr>
@@ -92,8 +100,12 @@
                         <td>
                             @item.Price
                         </td>
+
+                        <td>
+                            <a href="@Url.Action("Create", "BookingCosmeticServices", new { serviceId = @item.Id })">Booking</a>
+                        </td>
                     </tr>
-                 }
+                }
             </table>
         </div>
     }
@@ -101,7 +113,7 @@
     <div>
         @Html.ActionLink("Go back to main page", "Index", "Home")
     </div>
- }
+}
 
 else
 {
@@ -112,10 +124,11 @@ else
                 <th>№</th>
                 <th>Name service</th>
                 <th>Price,$</th>
+
             </tr>
 
             @for (int i = 0; i < Model.CosmeticServices.Count; i++)
-             {
+            {
                 var item = Model.CosmeticServices[i];
                 var displayIndex = i + 1;
                 <tr>
@@ -131,12 +144,12 @@ else
                         @item.Price
                     </td>
                 </tr>
-             }
+            }
         </table>
     </div>
 
     <div>
-     @Html.ActionLink("Go back to main page", "Index", "Home")
+        @Html.ActionLink("Go back to main page", "Index", "Home")
     </div>
 }
 

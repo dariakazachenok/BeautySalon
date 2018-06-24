@@ -11,8 +11,8 @@ using System;
 namespace Services.Migrations
 {
     [DbContext(typeof(DatabaseContext))]
-    [Migration("20180619135535_All tables")]
-    partial class Alltables
+    [Migration("20180623175900_All Tables")]
+    partial class AllTables
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -138,9 +138,11 @@ namespace Services.Migrations
 
                     b.Property<string>("LastName");
 
-                    b.Property<string>("MasterName");
+                    b.Property<int>("MasterName");
 
                     b.Property<int?>("Phone");
+
+                    b.Property<int?>("ServiceId");
 
                     b.Property<DateTime>("VisitData");
 

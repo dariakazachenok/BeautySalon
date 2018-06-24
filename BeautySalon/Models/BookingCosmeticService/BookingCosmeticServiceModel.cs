@@ -8,6 +8,7 @@ namespace Models
         public int? ServiceId { get; set; }
         public string Nameservice { get; set; }
         public int Price { get; set; }
+        public int? Id { get; set; }
 
         [Display(Name = "Visit date")]
         [Required(ErrorMessage = "Please enter visit data")]

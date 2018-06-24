@@ -73,5 +73,12 @@ namespace Services
         {
             return databaseContex.BookingCosmeticServices.FirstOrDefault(x => x.Id == id);
         }
+
+        public void RemoveBookingCosmeticService(int id)
+        {
+            var cosmeticService = databaseContex.BookingCosmeticServices.FirstOrDefault(x => x.Id == id);
+            databaseContex.BookingCosmeticServices.Remove(cosmeticService);
+            databaseContex.SaveChanges();
+        }
     }
 }
