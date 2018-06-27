@@ -13,6 +13,8 @@
 
 <div>
     @Html.HiddenFor(model => model.ServiceId)
+    @Html.HiddenFor(model => model.Nameservice)
+    @Html.HiddenFor(model => model.Price)
 
     <div class="form-group">
         @Html.LabelFor(model => model.VisitData, new { @class = "control-label col-md-2" })
@@ -27,7 +29,7 @@
         @Html.LabelFor(model => model.MasterName, new { @class = "control-label col-md-2" })
         <div class="col-md-10">
             @Html.DropDownListFor(model => model.MasterName, new[]
-            {
+                      {
                 new SelectListItem() {Text = "Abramson", Value = "1" },
                 new SelectListItem() {Text = "Brickman", Value = "2" },
                 new SelectListItem() {Text = "Watson",   Value = "3" }

@@ -90,6 +90,8 @@ namespace BeautySalon.Controllers
             var bookingCosmeticServiceModel = new BookingCosmeticServiceModel();
 
             var bookingCosmeticService = cosmeticServiceService.GetByIdBookingCosmeticService(Id);
+            bookingCosmeticServiceModel.Nameservice = bookingCosmeticService.Nameservice;
+            bookingCosmeticServiceModel.Price = bookingCosmeticService.Price;
             bookingCosmeticServiceModel.VisitData = bookingCosmeticService.VisitData;
             bookingCosmeticServiceModel.MasterName = bookingCosmeticService.MasterName;
             bookingCosmeticServiceModel.FirstName = bookingCosmeticService.FirstName;
@@ -99,6 +101,7 @@ namespace BeautySalon.Controllers
             return View("Update", bookingCosmeticServiceModel);
         }
 
+        // POST: CosmeticService/Boooking
         [HttpPost]
         public ActionResult Update(BookingCosmeticServiceModel bookingCosmeticServiceModel)
         {
@@ -110,23 +113,24 @@ namespace BeautySalon.Controllers
             BookingCosmeticService bookingCosmeticService = new BookingCosmeticService();
 
             bookingCosmeticService.Id = bookingCosmeticServiceModel.Id.HasValue ? bookingCosmeticServiceModel.Id.Value : 0;
+            bookingCosmeticService.Nameservice = bookingCosmeticServiceModel.Nameservice;
+            bookingCosmeticService.Price = bookingCosmeticServiceModel.Price;
             bookingCosmeticService.VisitData = bookingCosmeticServiceModel.VisitData;
-            bookingCosmeticServiceModel.MasterName = bookingCosmeticService.MasterName;
-            bookingCosmeticServiceModel.FirstName = bookingCosmeticService.FirstName;
-            bookingCosmeticServiceModel.LastName = bookingCosmeticService.LastName;
-            bookingCosmeticServiceModel.Phone = bookingCosmeticService.Phone;
+            bookingCosmeticService.MasterName = bookingCosmeticServiceModel.MasterName;
+            bookingCosmeticService.FirstName = bookingCosmeticServiceModel.FirstName;
+            bookingCosmeticService.LastName = bookingCosmeticServiceModel.LastName;
+            bookingCosmeticService.Phone = bookingCosmeticServiceModel.Phone;
             cosmeticServiceService.Edit(bookingCosmeticService);
 
             return RedirectToAction("Index");
         }
 
-            [Authorize(Roles = "Admin")]
-            public ActionResult Delete(int id)
-            {
+        [Authorize(Roles = "Admin")]
+        public ActionResult Delete(int id)
+        {
             cosmeticServiceService.RemoveBookingCosmeticService(id);
 
             return RedirectToAction("Index");
-            }
-
+        }
     }
 }
